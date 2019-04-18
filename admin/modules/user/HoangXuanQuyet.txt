@@ -1,0 +1,6 @@
+- Module User :
+	+ Xem danh sách người dùng.
+	+ Thêm người dùng.
+	+ Sửa thông tin người dùng.
+	+ Xóa người dùng.
+	+ Tìm kiếm người dùng.

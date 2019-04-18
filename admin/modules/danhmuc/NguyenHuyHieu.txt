@@ -1,0 +1,5 @@
+- Module Danh muc:
+	+ Xem danh mục hóa đơn.
+	+ Thêm danh mục mới.
+	+ Sửa tên danh mục.
+	+ Xóa danh mục
