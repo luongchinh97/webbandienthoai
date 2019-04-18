@@ -36,6 +36,7 @@ I, Phân chia công việc trong nhóm
 	*	Modele thanhtoan	*	- Lương Văn Chính										*
 	*-----------------------------------------------------------------------------------*
 II, Cấu trúc project
+
 	- admin : chứa gioa diện và chức năng của nhân viên quản lý admin. Trong adim gồm:
 		+ layouts : chứa các trang giao diện của trang quản lý (header.php, footer.php, menu.php, ...).
 		+ modules : chứa các trang chức năng theo từng đối tượng.
