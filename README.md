@@ -46,4 +46,4 @@ II, Cấu trúc project
 	- static :  chứa các css, js, html, thư viện liên quản.
 	- modules : chứa trang chức năng của trang bán hàng.
 	** Mọi người hoàn thành công việc theo phân chia, nộp k đúng yêu cầu hay muộn sẽ bị trừ điểm khi sét điểm bt.
-	(Mọi người cố gắng - by ChinhDz) anh chinh dz
+	(Mọi người cố gắng - by ChinhDz)
