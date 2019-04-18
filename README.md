@@ -35,6 +35,7 @@ I, Phân chia công việc trong nhóm
 	*	Module giohang		*	- Lương Văn Chính										*
 	*	Modele thanhtoan	*	- Lương Văn Chính										*
 	*-----------------------------------------------------------------------------------*
+	
 II, Cấu trúc project
 
 	- admin : chứa gioa diện và chức năng của nhân viên quản lý admin. Trong adim gồm:
