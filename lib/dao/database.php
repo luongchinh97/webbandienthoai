@@ -5,6 +5,7 @@
  */
 class dao{
     private $conn;
+    /*Dùng chung*/
     //Thêm
     function insert($table, $data){
     $conn = connectDB();
@@ -29,20 +30,63 @@ class dao{
     }
 
 //Sửa 
-    function update($table,$data){
+    function update($table,$data,$id){
         $conn=connectDB();
-        $sql="UPDATE {$table} set";
+        $sql="UPDATE {$table} set ";
         $str="";
         foreach ($data as $key => $value) {
             if(is_string($value)){
-                $str=$key."='".$value."',";
+                $str.=$key."='".$value."',";
             } else{
-            $str=$key."=".$value.",";
+            $str.=$key."=".$value.",";
                 }
         }
 
         $str=substr($str,0,-1);
+        $sql.=$str." WHERE id=".$id.";";
+        $conn->query($sql);
+        $conn->close();
+        
     }
+
+    //Xoá
+    function delete($table,$id){
+        $conn=connectDB();
+        $sql="DELETE FROM {$table} WHERE id=$id;";
+        $conn->query($sql);
+        $conn->close();
+    }
+    //Dùng riêng
+    //Product
+    function getHangProduct(){
+        $conn=connectDB();
+        $sql="SELECT Distinct hangSX FROM product;";
+        
+        $rs=$conn->query($sql);
+
+        
+        $conn->close();
+        return $rs;
+        
+    }
+    function getSPbyHangProduct($hangSX){
+        $conn=connectDB();
+        $sql="SELECT * FROM product WHERE hangSX='".$hangSX."';";
+        $rs=$conn->query($sql);
+        $conn->close();
+        return $rs;
+    }
+    //Tìm sản phầm theo tên nhập vào
+    function SearchbyName($data){
+        $conn=connectDB();
+        $sql="SELECT * FROM product WHERE namePro like'%".$data."%';";
+        $rs=$conn->query($sql);
+        $conn->close();
+        return $rs;
+
+    }
+    //Order
     
 }
+    
  ?>
