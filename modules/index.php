@@ -8,7 +8,7 @@
 	<script type="text/javascript" charset="utf8" src="/LapTrinhWeb/static/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<?php include("../layouts/header.php") ?>
 	<div id="main">
 		<div id="quang-cao">
 			<img id="quang-cao-mot"
@@ -124,7 +124,7 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"></jsp:include>
+	<?php include("../layouts/footer.php") ?>
 
 </body>
 </html>
