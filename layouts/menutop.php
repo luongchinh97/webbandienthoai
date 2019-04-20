@@ -1,6 +1,6 @@
 <!-- CODE PHP -->
 <?php 
-	require_once  ("lib/dao/database.php");
+	require_once  ("controller/dao/database.php");
 	session_start();
 	$dao = new dao;
 	$url = $dao->base_url();
