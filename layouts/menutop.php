@@ -1,21 +1,41 @@
+<!-- CODE PHP -->
+<?php 
+	require_once  ("lib/dao/database.php");
+	session_start();
+	$dao = new dao;
+	$url = $dao->base_url();
+	/*Lấy danh sách danh mục*/
+	$htmlHang = "";
+	$arr = $dao->getHangProduct();
+	foreach ($arr as $key => $value) {
+		$htmlHang .= "<li><a href='".$url."product.php?hangSX=".$value['hangSX']."'>"
+				.$value['hangSX']."</a></li>";
+	}
+	/*Check user đăng nhập*/
+	$htmlUser = "<a href='".$url."dangky.php'>Đăng ký</a><a href='".$dao->base_url()."dangnhap.php'>Đăng nhập</a>";
+	if(isset($_SESSION["user"])){
+		$table = "user";
+		$id = $_SESSION["user"]["id"];
+		$htmlUser = "<a href='#'>".$dao->getById($table, $id)."</a>";
+	}
+ ?>
+ <!-- END CODE PHP -->
+
 <div id="temp"></div>
 <div id="menu-top">
 	<ul>
-		<li class="home-shop"><a href="/LapTrinhWeb/home-shop">Home<span>Shop</span></a></li>
-		<li><a href="/LapTrinhWeb/home-shop">Home &rsaquo;</a>
-			<ul>
-				<li><a href="/LapTrinhWeb/smartphone">Apple</a></li>
-				<li><a href="/LapTrinhWeb/table">Samsung</a></li>
-				<li><a href="/LapTrinhWeb/laptop">Asus</a></li>
-				<li><a href="/LapTrinhWeb/phukien">OPPO</a></li>
-			</ul></li>
-		<li><a href="#">Khuyễn mãi</a></li>
-		<li><a href="#">CÃ´ng nghá»‡</a></li>
-		<li><a href="#">Há»i Ä‘Ã¡p</a></li>
+		<li class="home-shop"><a href="#">Home<span>Shop</span></a></li>
+		<li><a>Điện thoại &rsaquo;</a>
+			<ul class="list-hang">
+			<!-- Danh sách hãng sản phẩm -->
+			<?php echo $htmlHang; ?>
+			</ul>
+		</li>
+		<li><a href="#">Bảo hành</a></li>
 	</ul>
 	<div class="top_search">
 		<div class="input-group">
-			<form action="/LapTrinhWeb/tim-kiem" method="post">
+			<form action="" method="post">
 				<input type="text" name="search" class="form-control" placeholder="Search for...">
 				<span class="input-group-btn">
 					<button class="btn btn-default" type="submit">Go!</button>
@@ -24,41 +44,23 @@
 		</div>
 	</div>
 	<div id="dang-nhap-dang-ky">
-		<c:if test="${sessionScope.member==null}">
-			<a href="<c:url value = '/dang-nhap'/>">ÄÄƒng nháº­p</a>
-			<a href="<c:url value = '/dang-ky'/>">ÄÄƒng kÃ½</a>
-		</c:if>
-		<c:if test="${sessionScope.member!=null}">
-			<button><a href="/LapTrinhWeb/logout">ÄÄƒng xuáº¥t</a></button>
-		</c:if>
+		<?php echo $htmlUser; ?>
 	</div>
 	<div id="gio-hang">
 		<div>
-			<a href="/LapTrinhWeb/gio-hang"><img src="/LapTrinhWeb/static/images/shopping-cart(1).png"></a>
+			<a href="#"><img src="static/images/shopping-cart(1).png"></a>
 		</div>
-		<p>Shopping cart</p>
-		<p>
-			<span id="so-luong-items"></span> items
-		</p>
+		<span id="so-luong-items">0</span>
 	</div>
 	
 </div>
-
-
 <script type="text/javascript">
 	$('#gio-hang div').mouseover(function() {
 		$(this).css({"background-color" : "white"});
-		$('#gio-hang img').attr('src','/LapTrinhWeb/static/images/shopping-cart.png');
+		$('#gio-hang img').attr('src','static/images/shopping-cart.png');
 	});
 	$('#gio-hang div').mouseout(function() {
 		$(this).css({"background-color" : "#6b9cff"});
-		$('#gio-hang img').attr('src','/LapTrinhWeb/static/images/shopping-cart(1).png');
+		$('#gio-hang img').attr('src','static/images/shopping-cart(1).png');
 	});
-	var soLuong = 0;
-	soLuong = ${sessionScope.soLuong};
-	if(soLuong != 0){
-		$('#so-luong-items').html(soLuong);
-	}else{
-		$('#so-luong-items').html(0);
-	}
 </script>

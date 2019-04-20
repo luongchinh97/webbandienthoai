@@ -2,20 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/LapTrinhWeb/static/css/style.css" rel="stylesheet" />
-<script type="text/javascript" charset="utf8" src="/LapTrinhWeb/static/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/LapTrinhWeb/static/js/myJS.js"></script>
+<link href="static/css/style.css" rel="stylesheet" />
+<script type="text/javascript" charset="utf8" src="static/js/jquery-3.2.1.min.js"></script>
 <title>Homeshop</title>
 </head>
 <body>
-	<jsp:include page="menutop.jsp"></jsp:include>
+	<?php include("layouts/header.php") ?>
 	<div id="s-title">
 		<p style="visibility: hidden;">
-		<a href="/LapTrinhWeb/home-shop">HOME</a>/<a class="link-danh-muc"><span class="danh-muc-product"></span></a>/<span class="name-product"></span>
+		<a href="home-shop">HOME</a>/<a class="link-danh-muc"><span class="danh-muc-product"></span></a>/<span class="name-product"></span>
 		</p>
 		<h1>Giỏ hàng của bạn</h1>
 		<p>
-			<a href="/LapTrinhWeb/home-shop">&larr; Back to Home</a>
+			<a href="#">&larr; Back to Home</a>
 		</p>
 	</div>
 	<div id="tai"></div>
@@ -77,7 +76,6 @@
 			</div>
 			
 	</div>
-	
-	<jsp:include page="footer.jsp"></jsp:include>
+	<?php include("layouts/footer.php") ?>
 </body>
 </html>

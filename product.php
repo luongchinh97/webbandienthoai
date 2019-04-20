@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Homeshop</title>
-<link href="/LapTrinhWeb/static/css/style.css" rel="stylesheet" />
-<script type="text/javascript" charset="utf8"
-	src="/LapTrinhWeb/static/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/LapTrinhWeb/static/js/myJS.js"></script>
-<script type="text/javascript" src="/LapTrinhWeb/static/js/styleJS.js"></script>
-
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Homeshop</title>
+  <link href="static/css/style.css" rel="stylesheet" />
+  <script type="text/javascript" charset="utf8" src="static/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-	<jsp:include page="menutop.jsp"></jsp:include>
+  <!-- PHP --> 
+	<?php 
+    require_once  ("layouts/menutop.php");
+    $hangSX = $_GET['hangSX'];
+    $arrPro = $dao->getProductByHang($hangSX);
+  ?>
+  <!-- END PHP -->
+
 	<div id="s-title">
 		<p>
-			<a href="/LapTrinhWeb/homeshop">HOME</a>/TABLET
+			<a href="#">HOME</a>/TABLET
 		</p>
 		<h1>Tablet</h1>
 		<p>
-			<a href="/LapTrinhWeb/table">&larr; Back to Home</a>
+			<a href="#">&larr; Back to Home</a>
 		</p>
 	</div>
 	<div id="main-smartphone">
-		<jsp:include page="menuleft.jsp"></jsp:include>
+		<?php require_once ("layouts/menuleft.php") ?>
 		<div id="main-smartphone-contents">
 			<div id="top-main">
 				<div id="button-list"></div>
@@ -31,24 +34,23 @@
 			</div>
 			<div id="contents">
 				<div class="product-swapper">
-				
 				</div>
 			</div>
 			
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"></jsp:include>
+	<?php require_once ("layouts/footer.php") ?>
 	
 	<script language="javascript">
 	
 	$(document).ready(function(){
-		var list = ${list};
+		var list = <?php echo json_encode($arrPro); ?>;
 		var productSwapperHtml = '', productHtml = '', keyHang='Tất cả', keyTien = 'Tất cả';
         var classD = 'product-detail';
         var classB = 'product-box';
         var productSwapper = [], product = [];
         $.each(list, function(index, element){
-        	productSwapperHtml += '<div class="'+classB+'"><img src="/LapTrinhWeb/static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "/LapTrinhWeb/chi-tiet?id='+element.maMH+'">'+element.tenMH+'</a></h4><p class="id-product">'+element.maMH+'</p><p ><a class = "add-to-cart" href="/LapTrinhWeb/add-cart?idP='+element.maMH+'">Add to Cart</a></p><h5>'+element.giaMH+'</h5></div></div>';
+        	productSwapperHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p ><a class = "add-to-cart" href="giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+element.gia+'</h5></div></div>';
        		productSwapper.push(element);
         });
         $('.product-swapper').html(productSwapperHtml);
@@ -65,12 +67,12 @@
      		 $('.product-swapper').html(productSwapperHtml);
               console.log(productSwapper);
               $('.id-product').hide();
-              $('.a').css("list-style-image", "url(/LapTrinhWeb/static/images/checkbox.png)");
-         	 	$(this).css("list-style-image", "url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+              $('.a').css("list-style-image", "url(static/images/checkbox.png)");
+         	 	$(this).css("list-style-image", "url(static/images/checkboxCheck.png)");
      	 }else if(keyHang !== 'Tất cả' && keyTien ==='Tất cả'){
      		 $.each(productSwapper, function(index, element){
-             	 if (element.hangMH===keyHang) {
-             		 productHtml += '<div class="'+classB+'"><img src="/LapTrinhWeb/static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "/LapTrinhWeb/chi-tiet?id='+element.maMH+'">'+element.tenMH+'</a></h4><p class="id-product">'+element.maMH+'</p><p><a class = "add-to-cart" href="/LapTrinhWeb/add-cart?idP='+element.maMH+'">Add to Cart</a></p><h5>'+element.giaMH+'</h5></div></div>';
+             	 if (element.hangSX===keyHang) {
+             		 productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="../giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+element.gia+'</h5></div></div>';
              		 product.push(element);
                   }
               });
@@ -80,8 +82,8 @@
          	 	 $('.product-swapper').html(productHtml);
          	 	$('.id-product').hide();
          	 }
-     		 $('.a').css("list-style-image", "url(/LapTrinhWeb/static/images/checkbox.png)");
-         	 $(this).css("list-style-image", "url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+     		 $('.a').css("list-style-image", "url(static/images/checkbox.png)");
+         	 $(this).css("list-style-image", "url(static/images/checkboxCheck.png)");
      	 }else if(keyHang === 'Tất cả' && keyTien !=='Tất cả'){
      		 if(keyTien==='Dưới 5 triệu'){
         		 var min = 0, max = 5000000;
@@ -93,10 +95,10 @@
         		 var min = 20000000, max = 100000000000;
         	 }
      		 $.each(productSwapper, function(index, element){
-         		 var gia = parseInt(element.giaMH);
+         		 var gia = parseInt(element.gia);
          		 console.log(gia);
              	 if (gia<max && gia>min) {
-             		 productHtml += '<div class="'+classB+'"><img src="/LapTrinhWeb/static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "/LapTrinhWeb/chi-tiet?id='+element.maMH+'">'+element.tenMH+'</a></h4><p class="id-product">'+element.maMH+'</p><p><a class = "add-to-cart" href="/LapTrinhWeb/add-cart?idP='+element.maMH+'">Add to Cart</a></p><h5>'+element.giaMH+'</h5></div></div>';
+             		 productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="../giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+element.gia+'</h5></div></div>';
              		 product.push(element);
                   }
               });
@@ -106,8 +108,8 @@
          	 	 $('.product-swapper').html(productHtml);
          	 	$('.id-product').hide();
          	 }
-         	 $('.a').css("list-style-image", "url(/LapTrinhWeb/static/images/checkbox.png)");
-         	 $(this).css("list-style-image", "url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+         	 $('.a').css("list-style-image", "url(static/images/checkbox.png)");
+         	 $(this).css("list-style-image", "url(static/images/checkboxCheck.png)");
      	 }else if(keyHang !=='Tất cẩ' && keyTien !== 'Tất cả'){
      		 if(keyTien==='Dưới 5 triệu'){
         		 var min = 0, max = 5000000;
@@ -119,10 +121,10 @@
         		 var min = 20000000, max = 100000000000;
         	 }
      		 $.each(productSwapper, function(index, element){
-         		 var gia = parseInt(element.giaMH);
+         		 var gia = parseInt(element.gia);
          		 console.log(gia);
-             	 if (gia<max && gia>min && element.hangMH===keyHang) {
-             		 productHtml += '<div class="'+classB+'"><img src="/LapTrinhWeb/static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "/LapTrinhWeb/chi-tiet?id='+element.maMH+'">'+element.tenMH+'</a></h4><p class="id-product">'+element.maMH+'</p><p><a class = "add-to-cart" href="/LapTrinhWeb/add-cart?idP='+element.maMH+'">Add to Cart</a></p><h5>'+element.giaMH+'</h5></div></div>';
+             	 if (gia<max && gia>min && element.hangSX===keyHang) {
+             		 productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="../giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+element.gia+'</h5></div></div>';
              		 product.push(element);
                   }
               });
@@ -132,8 +134,8 @@
          	 	 $('.product-swapper').html(productHtml);
          	 	$('.id-product').hide();
          	 }
-         	 $('.a').css("list-style-image", "url(/LapTrinhWeb/static/images/checkbox.png)");
-         	 $(this).css("list-style-image", "url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+         	 $('.a').css("list-style-image", "url(static/images/checkbox.png)");
+         	 $(this).css("list-style-image", "url(static/images/checkboxCheck.png)");
      	 }
   	 });
       /*********************************
@@ -147,12 +149,12 @@
    		 $('.product-swapper').html(productSwapperHtml);
    		 	$('.id-product').hide();
             console.log(productSwapper);
-            $('.b').css("list-style-image", "url(/LapTrinhWeb/static/images/checkbox.png)");
-       	 	$(this).css("list-style-image", "url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+            $('.b').css("list-style-image", "url(static/images/checkbox.png)");
+       	 	$(this).css("list-style-image", "url(static/images/checkboxCheck.png)");
    	 }else if(keyHang !== 'Tất cả' && keyTien ==='Tất cả'){
    		 $.each(productSwapper, function(index, element){
-           	 if (element.hangMH===keyHang) {
-           		 productHtml += '<div class="'+classB+'"><img src="/LapTrinhWeb/static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "/LapTrinhWeb/chi-tiet?id='+element.maMH+'">'+element.tenMH+'</a></h4><p class="id-product">'+element.maMH+'</p><p><a class = "add-to-cart" href="/LapTrinhWeb/add-cart?idP='+element.maMH+'">Add to Cart</a></p><h5>'+element.giaMH+'</h5></div></div>';
+           	 if (element.hangSX===keyHang) {
+           		 productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+element.gia+'</h5></div></div>';
            		 product.push(element);
                 }
             });
@@ -162,8 +164,8 @@
        	 	 $('.product-swapper').html(productHtml);
        	 	 $('.id-product').hide();
        	 }
-   		 $('.b').css("list-style-image", "url(/LapTrinhWeb/static/images/checkbox.png)");
-       	 $(this).css("list-style-image", "url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+   		 $('.b').css("list-style-image", "url(static/images/checkbox.png)");
+       	 $(this).css("list-style-image", "url(static/images/checkboxCheck.png)");
    	 }else if(keyHang === 'Tất cả' && keyTien !=='Tất cả'){
    		 if(keyTien==='Dưới 5 triệu'){
     		 var min = 0, max = 5000000;
@@ -175,10 +177,10 @@
     		 var min = 20000000, max = 100000000000;
     	 }
    		 $.each(productSwapper, function(index, element){
-       		 var gia = parseInt(element.giaMH);
+       		 var gia = parseInt(element.gia);
        		 console.log(gia);
            	 if (gia<max && gia>min) {
-           		 productHtml += '<div class="'+classB+'"><img src="/LapTrinhWeb/static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "/LapTrinhWeb/chi-tiet?id='+element.maMH+'">'+element.tenMH+'</a></h4><p class="id-product">'+element.maMH+'</p><p><a class = "add-to-cart" href="/LapTrinhWeb/add-cart?idP='+element.maMH+'">Add to Cart</a></p><h5>'+element.giaMH+'</h5></div></div>';
+           		 productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="../giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+element.gia+'</h5></div></div>';
            		 product.push(element);
                 }
             });
@@ -188,8 +190,8 @@
        	 	 $('.product-swapper').html(productHtml);
        	 	 $('.id-product').hide();
        	 }
-       	 $('.b').css("list-style-image", "url(/LapTrinhWeb/static/images/checkbox.png)");
-       	 $(this).css("list-style-image", "url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+       	 $('.b').css("list-style-image", "url(static/images/checkbox.png)");
+       	 $(this).css("list-style-image", "url(static/images/checkboxCheck.png)");
    	 }else if(keyHang !=='Tất cẩ' && keyTien !== 'Tất cả'){
    		 if(keyTien==='Dưới 5 triệu'){
     		 var min = 0, max = 5000000;
@@ -201,10 +203,10 @@
     		 var min = 20000000, max = 100000000000;
     	 }
    		 $.each(productSwapper, function(index, element){
-       		 var gia = parseInt(element.giaMH);
+       		 var gia = parseInt(element.gia);
        		 console.log(gia);
-           	 if (gia<max && gia>min && element.hangMH===keyHang) {
-           		 productHtml += '<div class="'+classB+'"><img src="/LapTrinhWeb/static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "/LapTrinhWeb/chi-tiet?id='+element.maMH+'">'+element.tenMH+'</a></h4><p class="id-product">'+element.maMH+'</p><p><a class = "add-to-cart" href="/LapTrinhWeb/add-cart?idP='+element.maMH+'">Add to Cart</a></p><h5>'+element.giaMH+'</h5></div></div>';
+           	 if (gia<max && gia>min && element.hangSX===keyHang) {
+           		 productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+element.gia+'</h5></div></div>';
            		 product.push(element);
                 }
             });
@@ -214,8 +216,8 @@
        	 	 $('.product-swapper').html(productHtml);
        	 	 $('.id-product').hide();
        	 }
-       	 $('.b').css("list-style-image", "url(/LapTrinhWeb/static/images/checkbox.png)");
-       	 $(this).css("list-style-image", "url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+       	 $('.b').css("list-style-image", "url(static/images/checkbox.png)");
+       	 $(this).css("list-style-image", "url(static/images/checkboxCheck.png)");
    	 }
 	 });
     /************************************
@@ -258,7 +260,7 @@
   	  classB='product-box-after-after';
     });
 });
-		$('#checkTable').css("list-style-image","url(/LapTrinhWeb/static/images/checkboxCheck.png)");
+		$('#checkTable').css("list-style-image","url(static/images/checkboxCheck.png)");
 	</script>
 
 </body>

@@ -122,15 +122,28 @@ a {
 #dang-nhap-dang-ky a{
 	margin: 10px;
 }
+#tai{
+	display: block;
+	width: 70%;
+	height: 25px;
+	clear: left;
+}
 #menu-top .home-shop a:HOVER {
 	color: black;
 }
 #main-gio-hang{
-	width: 100%;
+	clear: left;
+	width: 70%;
 	min-height: 600px; 
+	display: table;
+	margin: 50px auto;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 #show-gio-hang{
-	width: 700px;
+	width: 800px;
 	margin: 0px auto;
 	text-align: left;
 	min-height: 100px;
@@ -140,6 +153,7 @@ a {
 	background-color: #fff6dd;
 	height: 30px;
 	line-height: 30px;
+	width: 150px;
 }
 .xoa-pro{
 	cursor: pointer;
@@ -163,7 +177,10 @@ a {
 	background-color: #ff8228;
 }
 .button-tt{
+	clear: left;
 	background-color: #f9ef2a;
+	margin-left: 15px;
+	border-radius:5px; 
 }
 .button-mt{
 	background-color: #fcaf2a;
@@ -172,9 +189,44 @@ a {
 	color: white;
 }
 #button{
-	width: 350px;
-	height: 100px;
-	margin: 0px auto;
+	width: 800px;
+	margin: 20px auto;
+	padding-top: 15px;
+	border-top: 1px solid #d8d8d8;
+}
+#button input{
+	display: block;
+	padding: 5px;
+	height: 25px;
+	border: 0;
+	border-radius: 4px; 
+	width: 100%;
+}
+#button select{
+	display: block;
+	width: 100%;
+	padding: 5px;
+	border: 0;
+	color: #288ad6;;
+}
+#button select:FOCUS{
+	outline: 0;
+}
+#button .button-input{
+	width: 200px;
+	height: 30px;
+	display: block;
+	overflow: hidden;
+	padding: 0;
+	border: 1px solid #d9d9d9;
+	border-radius:4px;
+	margin: 15px;
+}
+#button input:FOCUS{
+	outline: 0;
+}
+#button .diaChi-input{
+	width: 400px;
 }
 #menu-top #search #form {
 	border-radius: 40px;
@@ -738,7 +790,10 @@ a {
 	height: 30px;
 	cursor: pointer;
 }
-
+#menu-left ul li a{
+	text-decoration: none;
+	color: black;
+}
 #main-smartphone-contents {
 	border-left: 1px solid #6b9cff;
 	padding: 10px;
@@ -1013,6 +1068,9 @@ a {
 	height:20px;
 	width: 115px;
 	float: left;
+}
+.top_search input:FOCUS{
+	outline: 0;	
 }
 .top_search .input-group {
 	position: relative;
