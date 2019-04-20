@@ -4,10 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="static/css/style.css"/>
 <title>Homeshop</title>
-
 </head>
 <body>
-	<?php include("layouts/header.php") ?>
+	<?php include("layouts/menutop.php") ?>
 	<div id="login">
 		<div id="form-a">
 			<h1>Đăng nhập</h1>

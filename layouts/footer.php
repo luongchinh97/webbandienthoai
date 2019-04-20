@@ -5,7 +5,7 @@
 			Home<span style="color: pink; font-size: 25px;">Shop</span>
 		</h3>
 		<ul>
-			<li><a href="#">Shop</a></li>
+			<li><a href="<?php echo $urlHomeshop; ?>">Shop</a></li>
 			<li><a href="#">Khuyễn mãi</a></li>
 			<li><a href="#">Công nghệ</a></li>
 			<li><a href="#">Hỏi đáp</a></li>

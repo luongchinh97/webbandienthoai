@@ -17,9 +17,9 @@
 
 	<div id="s-title">
 		<p>
-			<a href="#">HOME</a>/TABLET
+			<a href="<?php echo $urlHomeShop; ?>">HOME</a>/TABLET
 		</p>
-		<h1>Tablet</h1>
+		<h1><?php echo $hangSX; ?></h1>
 		<p>
 			<a href="#">&larr; Back to Home</a>
 		</p>

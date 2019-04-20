@@ -5,7 +5,7 @@
 <title>Homeshop</title>
 <link type="text/css" rel="stylesheet" href="static/css/style.css"/>
 <body>
-	<?php include("layouts/header.php") ?>
+	<?php include("layouts/menutop.php") ?>
 	<div id="login">
 		<div id="form-a">
 			<h1>Đăng ký</h1>

@@ -7,14 +7,19 @@
 <title>Homeshop</title>
 </head>
 <body>
-	<?php include("layouts/header.php") ?>
+	<!-- PHP -->
+	<?php 
+		require_once ("layouts/menutop.php") 
+
+	?>
+	<!-- END PHP -->
 	<div id="s-title">
 		<p style="visibility: hidden;">
-		<a href="home-shop">HOME</a>/<a class="link-danh-muc"><span class="danh-muc-product"></span></a>/<span class="name-product"></span>
+		<a href="<?php echo $urlHomeShop ?>">HOME</a>/<a class="link-danh-muc"><span class="danh-muc-product"></span></a>/<span class="name-product"></span>
 		</p>
 		<h1>Giỏ hàng của bạn</h1>
 		<p>
-			<a href="#">&larr; Back to Home</a>
+			<a href="<?php echo $urlHomeShop; ?>">&larr; Back to Home</a>
 		</p>
 	</div>
 	<div id="tai"></div>
@@ -33,7 +38,7 @@
 				</tr>
 				</thead>
 				<tbody>
-				<c:forEach items="${sessionScope.carts}" var="cartItem" varStatus="status">
+				<!--<c:forEach items="${sessionScope.carts}" var="cartItem" varStatus="status">
 					<tr>
 						<form action="" method="post" accept-charset="UTF-8">
 							<input type="hidden" value="${cartItem.matHang.maMH}" name="idP" />
@@ -47,7 +52,7 @@
 							<td><button type="submit">Update</button></td>
 						</form>
 					</tr>
-				</c:forEach>
+				</c:forEach>-->
 				<c:if test="${empty sessionScope.carts}">
 				<tr>
 					<td colspan="7">Không có sản phẩm nào trong giỏ hàng.</td>
@@ -60,9 +65,8 @@
 				<c:if test="${not empty sessionScope.carts}">
 					<c:url value="/member/phuong-thuc-thanh-toan" var="url"></c:url>
 					<form action="${url}" method="post">
-						<div class="button-input"><input type="text" name="maKH" placeholder="Mã CMND"></div>
 						<div class="button-input"><input type="text" name="hoTen" placeholder="Họ và tên" ></div>
-						<div class="button-input"><input type="text" name="sdt" placeholder="Số điện thoại" value"></div>
+						<div class="button-input"><input type="text" name="sdt" placeholder="Số điện thoại"></div>
 						<div class="button-input diaChi-input"><input type="text" name="diaChi" placeholder="Địa chỉ" ></div>
 						<div class="button-input">
 							<select name="maCN">
@@ -76,6 +80,6 @@
 			</div>
 			
 	</div>
-	<?php include("layouts/footer.php") ?>
+	<?php require_once ("layouts/footer.php") ?>
 </body>
 </html>

@@ -103,6 +103,7 @@
 					<div class="slider-nav"></div>
 				</div>
 				<div class="product-swapper">
+					<?php echo "$htmlSBC" ?>
 				</div>
 			</div>
 		</div>
