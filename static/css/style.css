@@ -42,7 +42,12 @@ a {
 #menu-top ul {
 	list-style-type: none;
 }
-
+#menu-top ul li img{
+	position: absolute;
+	top: -55px;
+	height: 200px;
+	width: 200px;
+}
 #menu-top ul li {
 	background-color: white;
 	position: relative;
