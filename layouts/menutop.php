@@ -13,7 +13,7 @@
 				.$value['hangSX']."</a></li>";
 	}
 	/*Check user đăng nhập*/
-	$htmlUser = "<a href='".$url."dangky.php'>Đăng ký</a><a href='".$dao->base_url()."dangnhap.php'>Đăng nhập</a>";
+	$htmlUser = "<a class='dang-ky' href='".$url."dangky.php'>Đăng ký</a><button class='dang-nhap'><a href='".$dao->base_url()."dangnhap.php'>Đăng nhập</a></button>";
 	if(isset($_SESSION["user"])){
 		$table = "user";
 		$id = $_SESSION["user"]["id"];
@@ -52,7 +52,7 @@
 		<div>
 			<a href="#"><img src="static/images/shopping-cart(1).png"></a>
 		</div>
-		<span id="so-luong-items">10</span>
+		<span id="so-luong-items">0</span>
 	</div>
 	
 </div>
