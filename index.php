@@ -81,7 +81,7 @@
 		<div id="contents">
 			<div id="product">
 				<div class="title">
-					<h3>Sản phẩm mới nhất</h3>
+					<h3 class="homenews">Sản phẩm mới nhất</h3>
 					<div class="slider-nav"></div>
 				</div>
 				<div class="product-swapper">

@@ -103,10 +103,13 @@ class dao{
         return $arr;
     }
 
-    function searchProductByName($data){
+    function searchProductByName($data, $limit){
         //tìm kiếm sản phẩm theo tên.
         $conn=connectDB();
         $sql="SELECT * FROM product WHERE namePro like'%".$data."%';";
+        if($limit>0){
+            $sql = "SELECT * FROM product WHERE namePro LIKE '%".$data."%' LIMIT ".$limit.";";
+        }
         $rs=$conn->query($sql);
         $arr = array();
         if($rs->num_rows>0){
@@ -137,7 +140,7 @@ class dao{
     function getProductBanChay(){
         $conn = connectDB();
         $arr = array();
-        $sql = "SELECT product.*, SUM(cartitems.soLuong) AS tong FROM product, cartitems WHERE product.id = cartitems.idProduct GROUP BY cartitems.idProduct ORDER BY tong DESC;";
+        $sql = "SELECT product.*, SUM(cartitems.soLuong) AS tong FROM product INNER JOIN cartitems ON product.id = cartitems.idProduct GROUP BY cartitems.idProduct ORDER BY tong DESC;";
         $rs= $conn->query($sql);
         if($rs->num_rows > 0){
             while($row = $rs->fetch_assoc()){
