@@ -1,0 +1,96 @@
+<?php 
+include __DIR__."/../../../controller/dao/database.php";
+
+ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Qu?n lý hóa don</title>
+  	<script type="text/javascript" charset="utf8" src="../../../static/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<?php 
+		$dao= new dao;
+		$url_base = $dao->base_url();
+		$arrHang=$dao->getHangProduct();
+		$htmlHang = "";
+		foreach ($arrHang as $value) {
+			$htmlHang .="<option value='".$value['hangSX']."'>".$value['hangSX']."</option>";
+		}
+		$arrList=$dao->getAllProduct();
+		$htmlList = "<table border='1px' cellspacing='0px'><tr style='font-weight: bold'>
+ 					<td>ID</td>
+ 					<td>Tên</td>
+ 					<td>Hãng SX</td>
+ 					<td>Nam SX</td>
+ 					<td>giá</td>
+ 					<td>?nh</td>
+ 					<td>S? Lu?ng</td>
+ 					<td></td>
+ 					<td></td>
+ 				</tr>";
+		foreach ($arrList as $row) {
+			$htmlList.="<tr><td>".$row['id']."</td>
+ 					<td>".$row['namePro']."</td>
+ 					<td>".$row['hangSX']."</td>
+ 					<td>".$row['namSX']."</td>
+ 					<td>".$row['gia']."</td>
+ 					<td><img src='../../../static/images/".$row['img']."'></td>
+ 					<td>".$row['tongSL']."</td>
+ 					<td><a href='sua.php?id=".$row['id']."'>S?a</a></td>
+ 					<td><a href='xoa.php?id=".$row['id']."'>Xóa</td>
+ 					</tr>";
+		}
+		$htmlList .="</table>";
+	?>
+
+	<div class="wrapper">
+		<div class="content">
+			<div>
+				<form method="POST" action="#">
+					<label>Tìm ki?m theo tên:</label> <input type="text" name="ten" placeholder="Nh?p tên s?n ph?m c?n tìm" class="searchTen">
+					<input type="submit" name="submit" value="Tìm">
+				</form>
+			</div>
+			<div>
+				<form method="POST" action="#">
+					<label>Hãng</label>
+					<select name="hangSX">
+						<?php echo "$htmlHang"; ?>
+					</select>
+					<input type="submit" name="Tìm">
+				</form>
+			</div>
+			<div class=list>
+				<?php echo $htmlList ?>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="footer"></div>
+	</div>
+	<script>
+		$(document).ready(function(){
+ 			load_data();
+ 			function load_data(query){
+  				$.ajax({
+  						 url:"<?php echo $url_base;?>controller/service/searchProductByNameService.php",
+   						method:"POST",
+   						data:{input:query},
+   						success:function(data){
+    						$('.list').html(data);
+  						 }
+  						});
+						 }
+ 			$('.searchTen').keyup(function(){
+  				var search = $(this).val();
+ 				 if(search != ''){
+   					load_data(search);
+  				}else {
+   					load_data();
+  						}
+ 		});
+});
+</script>
+</body>
+</html>

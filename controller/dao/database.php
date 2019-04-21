@@ -106,7 +106,7 @@ class dao{
     function searchProductByName($data){
         //tìm kiếm sản phẩm theo tên.
         $conn=connectDB();
-        $sql="SELECT * FROM product WHERE namePro like'%".$data."%';";
+        $sql="SELECT * FROM product WHERE namePro like '%".$data."%';";
         $rs=$conn->query($sql);
         $arr = array();
         if($rs->num_rows>0){
@@ -147,6 +147,19 @@ class dao{
         $conn->close();
         return $arr;
 
+    }
+    function getAllProduct(){
+        $conn=connectDB();
+        $arr=array();
+        $sql="SELECT * FROM product;";
+        $rs=$conn->query($sql);
+        if($rs->num_rows>0){
+             while($row = $rs->fetch_assoc()){
+                array_push($arr,$row);
+            }
+        }
+        $conn->close();
+        return $arr;
     }
     /* Order Function */
 

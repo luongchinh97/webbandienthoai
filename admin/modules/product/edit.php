@@ -1,9 +1,10 @@
 <?php 
-include("lib/dao/database.php");
+include __DIR__."/../../../controller/dao/database.php";
 $dao= new dao;
 $id=$_GET['id'];
-$rs= $dao->getSPbyId($id);
-$row=$rs->fetch_assoc();
+$rs=array();
+$rs=$dao->getbyId("product",$id);
+$row=$rs[0];
 
 
  ?>
@@ -28,13 +29,13 @@ $row=$rs->fetch_assoc();
  		<label>Hệ điều hành</label> 
  			<input type="text" name="heDieuHanh" value="<?php echo $row['heDieuHanh'] ?>"><br/>
  		<label>Ram</label> 
- 			<input type="text" name="ram" value="<?php echo $row['ram'] ?>"><br/>
+ 			<input type="text" name="ram" value="<?php echo $row['RAM'] ?>"><br/>
  		<label>Bộ nhớ trong</label> 
- 			<input type="text" name="rom" value="<?php echo $row['rom'] ?>"><br/>
+ 			<input type="text" name="rom" value="<?php echo $row['ROM'] ?>"><br/>
  		<label>pin</label> 
- 			<input type="text" name="pin" value="<?php echo $row['pin'] ?>"><br/>
+ 			<input type="text" name="pin" value="<?php echo $row['PIN'] ?>"><br/>
  		<label>ảnh</label> 
- 			<input type="file" name="img"> <img src='../../../static/images/'<?php echo "$row['img']"; ?>><br/>
+ 			<input type="file" name="img"> <img src="../../../static/images/<?php echo $row['img']; ?>"/><br/>
  		<label>Tổng số lượng</label> 
  			<input type="text" name="tongSL" value="<?php echo $row['tongSL'] ?>"><br/>				
  		<input type="submit" name="submit" value="UPDATE">		
@@ -46,8 +47,20 @@ $row=$rs->fetch_assoc();
  			die();
  		}
  		else{
- 			move_uploaded_file($_FILES['img']['tmp_name'],"static/images/".$_FILES['img']['name']);
- 			header("location:QuanLySanPham.php");
+ 			move_uploaded_file($_FILES['img']['tmp_name'],"../../../static/images/".$_FILES['img']['name']);
+ 			$data=array("namePro"=>$_POST['namePro'],
+ 						"hangSX"=>$_POST['hangSX'],
+ 						"gia"=>$_POST['gia'],
+ 						"manHinh"=>$_POST['manHinh'],
+ 						"camera"=>$_POST['camera'],
+ 						"heDieuHanh"=>$_POST['heDieuHanh'],
+ 						"RAM"=>$_POST['ram'],
+ 						"ROM"=>$_POST['rom'],
+ 						"PIN"=>$_POST['pin'],
+ 						"img"=>$_FILES['img']['name'],
+ 						"tongSL"=>$_POST['tongSL']);
+ 			$dao->update("product",$data,$id);
+ 			header("location:list.php");
  		}
  	}
  	 ?>
