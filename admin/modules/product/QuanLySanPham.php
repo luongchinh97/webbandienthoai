@@ -1,5 +1,5 @@
 <?php 
-include __DIR__."/../../../lib/dao/database.php";
+include "../../../controller/dao/database.php";
 $dao= new dao;
  ?>
 <!DOCTYPE html>

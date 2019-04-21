@@ -146,7 +146,10 @@ class dao{
         }
         $conn->close();
         return $arr;
+    }
 
+    function getProduct($ram, $gia){
+        if($ram === "Tất cả" && $gia ==="Tất cả");
     }
     /* Order Function */
 

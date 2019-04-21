@@ -27,7 +27,7 @@
 <div id="menu-top">
 	<ul>
 		<li class="home-shop"><a href="<?php echo $urlHomeShop; ?>">Home<span>Shop</span></a></li>
-		<li><a>Điện thoại &rsaquo;</a>
+		<li><a>Điện thoại</a>
 			<ul class="list-hang">
 			<!-- Danh sách hãng sản phẩm -->
 			<?php echo $htmlHang; ?>
@@ -52,7 +52,7 @@
 		<div>
 			<a href="#"><img src="static/images/shopping-cart(1).png"></a>
 		</div>
-		<span id="so-luong-items">0</span>
+		<span id="so-luong-items">10</span>
 	</div>
 	
 </div>

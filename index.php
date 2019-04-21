@@ -14,7 +14,7 @@
 		$spBanChay = $dao->getProductBanChay();
 		$spMoi = $dao->getProductMoi();
 		$htmlSBC = ""; $htmlSM = "";
-		foreach ($spBanChay as $row => $value) {
+		foreach ($spBanChay as $row => $value ) {
 			$htmlSBC.=
 			"<div class='product-box'><img src='static/images/".$value['img']."'/>
 				<div class='product-detail'>
