@@ -26,7 +26,7 @@
 <div id="temp"></div>
 <div id="menu-top">
 	<ul>
-		<li class="home-shop"><a href="<?php echo $urlHomeShop; ?>">Home<span>Shop</span></a></li>
+		<li class="home-shop"><a href="<?php echo $urlHomeShop; ?>"><img src="static/images/logo.png" alt=""></a></li>
 		<li><a>Điện thoại</a>
 			<ul class="list-hang">
 			<!-- Danh sách hãng sản phẩm -->
