@@ -187,6 +187,7 @@ a {
 	padding:0px;
 	background-color: red;
 	cursor: pointer;
+	border-radius: 15px;
 }
 .dang-nhap a{
 	padding: 0px;
