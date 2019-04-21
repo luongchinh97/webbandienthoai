@@ -1,5 +1,5 @@
 <?php
-    require_once (__DIR__ ."/../../../lib/dao/UserDao.php");
+    require_once (__DIR__ ."/../../../controller/dao/UserDao.php");
     $userDao=new UserDao();
     $userList=$userDao->getAllUser();
     $limit=5;
@@ -236,7 +236,7 @@
             $('#form-sua').show();
             console.log(id_sua);
             $.ajax({
-                url: "http://localhost:81/webbandienthoai/admin/modules/user/UseJsonController.php",
+                url: "http://localhost:81/webbandienthoai/controller/service/UseService.php",
                 contentType: "application/json; charset=utf-8",
                 method: "GET",
                 dataType: "json",
@@ -272,7 +272,7 @@
     function deleteUser(id) {
 
         $.ajax({
-            url: "http://localhost:81/webbandienthoai/admin/modules/user/UseJsonController.php",
+            url: "http://localhost:81/webbandienthoai/controller/service/UseService.php",
             contentType: "application/json; charset=utf-8",
             method: "DELETE",
             dataType: "json",
@@ -305,7 +305,7 @@
             }
             $.ajax({
                 async: false,
-                url: "http://localhost:81/webbandienthoai/admin/modules/user/UseJsonController.php",
+                url: "http://localhost:81/webbandienthoai/controller/service/UseService.php",
                 method: "POST",
                 data: user,
                 dataType: "json",
@@ -333,7 +333,7 @@
         }
         $.ajax({
             async: false,
-            url: "http://localhost:81/webbandienthoai/admin/modules/user/UseJsonController.php",
+            url: "http://localhost:81/webbandienthoai/controller/service/UseService.php",
             method: "UPDATE",
             data: user,
             dataType: "json",
@@ -351,7 +351,7 @@
     function searchUser(search) {
 
         $.ajax({
-            url: "http://localhost:81/webbandienthoai/admin/modules/user/UseJsonController.php",
+            url: "http://localhost:81/webbandienthoai/controller/service/UseService.php",
             contentType: "application/json; charset=utf-8",
             method: "GET",
             dataType: "json",

@@ -1,14 +1,11 @@
 <?php
-    require_once (__DIR__ ."/../../../lib/dao/UserDao.php");
-    require_once (__DIR__ ."/../../../lib/entity/User.php");
+    require_once (__DIR__ ."/../dao/UserDao.php");
+    require_once (__DIR__ ."/../entity/User.php");
     if(!isset($_SESSION)){
         session_start();
     }
     $userDao=new UserDao();
     $method = $_SERVER['REQUEST_METHOD'];
-
-
-
 
 
     if($method == "DELETE"){

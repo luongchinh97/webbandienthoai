@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__."/../../controller/dao/rootdao.php";
+    require_once __DIR__."/rootdao.php";
     require_once __DIR__."/../entity/User.php";
     class UserDao{
         private $conn;
