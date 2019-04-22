@@ -43,30 +43,31 @@ a {
 	list-style-type: none;
 }
 
-#menu-top ul li {
+#menu-top > ul > li {
 	background-color: white;
 	position: relative;
 	display: inline-block;
 	padding: 5px;
 	width: 100px;
 	height: 90px;
-	line-height: 60px;
+	line-height: 80px;
 	float: left;
 	font-weight: bold;
 	font-size: 18px;
 	text-align: left;
-}
+	margin-left: 20px; 
+	}
 
-#menu-top ul li a {
+#menu-top > ul > li > a {
 	text-decoration: none;
 	color: black;
 }
 
-#menu-top ul li a:hover {
+#menu-top > ul > li > a:hover {
 	color: #6b9cff;
 }
 
-#menu-top ul li ul {
+#menu-top >ul li ul {
 	padding: 0px;
 	position: absolute;
 	visibility: hidden;
@@ -75,16 +76,24 @@ a {
 	left: 0px;
 	border-top: 1px solid #6b9cff;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+	overflow: hidden;
 }
 
 #menu-top ul ul li {
-	padding: 10px;
+	width: 100%;
 	height: 20px;
 	line-height: 20px;
 	font-weight: normal;
 	font-size: 14px;
+	cursor: pointer;
+	margin: 0px;
+	background-color: #fff;
+	display: block;
+	padding: 3px;
 }
-
+#menu-top ul ul li a{
+	color: #333;
+}
 #menu-top ul li:hover ul {
 	transition: all ease 1s;
 	visibility: visible;
@@ -92,10 +101,13 @@ a {
 	top: 100px;
 }
 
-#menu-top ul ul a:hover {
+#menu-top ul ul li:hover {
 	transition: all ease 0.5s;
 	padding-left: 10px;
 	font-weight: bold;
+}
+
+#menu-top ul ul li:hover a{
 	color: #6b9cff;
 }
 
@@ -115,12 +127,14 @@ a {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	margin-right: 20px;
-	width: 170px;
+	width: 200px;
 	height: 50px;
+	line-height: 50px;
 	float: right;	
 }
 #dang-nhap-dang-ky a{
 	margin: 10px;
+	color: black;
 }
 #tai{
 	display: block;
@@ -129,7 +143,7 @@ a {
 	clear: left;
 }
 #menu-top .home-shop a:HOVER {
-	color: black;
+	color: black
 }
 #main-gio-hang{
 	clear: left;
@@ -154,6 +168,40 @@ a {
 	height: 30px;
 	line-height: 30px;
 	width: 150px;
+}
+#so-luong-items{
+	position: absolute;
+	width: 19px;
+	height: 19px;
+	right: 5px;
+	bottom: 0px;
+	color: #fff;
+	background-color: black;
+	font-size: 12px;
+	border-radius:50%;
+	font-family: inherit;
+}
+.dang-nhap{
+	width: 120px;
+	height: 50px;
+	padding:0px;
+	background-color: #8791ba;
+	cursor: pointer;
+	border-radius: 15px;
+}
+#dang-nhap-dang-ky .dang-nhap a{
+	padding: 0px;
+	margin: 0px;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #ffffff;
+	border-radius: 15px;
+}
+.dang-nhap:hover{
+	background-color: #6b9cff;
+}
+#dang-nhap-dang-ky .dang-ky:hover{
+	color: blue;
 }
 .xoa-pro{
 	cursor: pointer;
@@ -540,6 +588,9 @@ a {
 	left: 260px;
 	font-size: 14px;
 }
+.product-detail-after-after a{
+	color: blue;
+}
 .product-detail-after-after p{
 	cursor: pointer;
 	margin: 10px;
@@ -567,6 +618,9 @@ a {
 	top: 20px;
 	left: 350px;
 	font-size: 20px;
+}
+.product-detail-after a{
+	color: blue;
 }
 .product-detail-after h4{
 	margin:10px;
@@ -608,7 +662,9 @@ a {
 	line-height: 20px;
 	padding-top: 10px;
 }
-
+.product-detail a{
+	color: blue;
+}
 .product-detail p {
 	position: absolute;
 	width: 150px;
@@ -743,7 +799,7 @@ a {
 }
 #gio-hang{
 	margin: 20px;
-    width: 180px;
+    width: 60px;
     height: 50px;
     float: right;
     text-align: center;
@@ -751,6 +807,7 @@ a {
     font-weight: bolder;
     line-height: 20px;
     color: black;
+    position: relative;
 }
 #gio-hang div{
 	float: left;
@@ -1060,14 +1117,17 @@ a {
 }
 .top_search{
 	float: left;
-	width: 150px;
-	height: 40px;
-	margin-top:25px; 
+	width: 280px;
+	height: 50px;
+	margin-top: 25px; 
+	margin-left: 60px; 
+
 }
 .top_search input{
-	height:20px;
-	width: 115px;
+	height:25px;
+	width: 80%;
 	float: left;
+	margin: 0px auto;
 }
 .top_search input:FOCUS{
 	outline: 0;	
@@ -1077,23 +1137,82 @@ a {
 	padding: 5px;
 	text-align: center;
 	border: 1px solid #636363;
-	border-radius: 15px;
-	width: 150px;
-	height: 20px;
-	overflow: hidden;	
+	border-radius: 20px;
+	width: 100%;
+	height: 25px;
+	overflow: hidden;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
 }
 .top_search button {
 	position: absolute;
+	color: #fff;
 	top: 0px;
 	right: 0px;
-	width: 30px;
-	height: 30px;
-	text-align: left;
-	background-color: white;
-	border: 0 px;
+	width: 20%;
+	height: 31px;
+	text-align: center;
+	background: -moz-radial-gradient(top left, circle farthest-side, #ffffff 0%, #70a6ff 100%);
+    background: -o-radial-gradient(top left, circle farthest-side, #ffffff 0%, #70a6ff 100%);
+    background: -ms-radial-gradient(top left, circle farthest-side, #ffffff 0%, #70a6ff 100%);
+    background: -webkit-radial-gradient(top left, circle farthest-side, #ffffff 0%, #70a6ff 100%);
+	border: 0px;
 	cursor: pointer;
+	padding: 0px;
+	margin: 0px;
+	font-size: 14px;
+	border-radius: 25px;
+	margin: 2px 2px;
+	color: black;
+	border: 1px solid #93bcff;
 }
-.top_search button:HOVER {
-	background-color: #c9c9c9;
-	color: white;
+.data-search{
+	margin: 10px 0px;
+	width: 290px;
+	height: auto;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.data-search img {
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin-right: 10px; 
+}
+.data-search ul {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: auto;
+}
+.data-search li {
+	margin: 0px;
+	width: 100%;
+	padding: 6px;
+	display:block;
+	height: 50px;
+	cursor: pointer;
+	background-color: #fff;
+	border-bottom: 1px dotted #ccc; 
+}
+.data-search a{
+	display: block;
+	overflow: hidden;
+	color: #333;
+	font-size: 12px;
+}
+.name-product{
+	width: auto;
+	color: #333;
+	font-size: 14px;
+	font-weight: 700;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.gia-product{
+	font-size: 12px;
+	color: #c70100;
+	float: none;
+}
+.data-search li:hover{
+	background-color: #f9f9f9;
 }

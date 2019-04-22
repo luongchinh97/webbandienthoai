@@ -14,7 +14,7 @@
 		$spBanChay = $dao->getProductBanChay();
 		$spMoi = $dao->getProductMoi();
 		$htmlSBC = ""; $htmlSM = "";
-		foreach ($spBanChay as $row => $value) {
+		foreach ($spBanChay as $row => $value ) {
 			$htmlSBC.=
 			"<div class='product-box'><img src='static/images/".$value['img']."'/>
 				<div class='product-detail'>
@@ -81,7 +81,7 @@
 		<div id="contents">
 			<div id="product">
 				<div class="title">
-					<h3>Sản phẩm mới nhất</h3>
+					<h3 class="homenews">Sản phẩm mới nhất</h3>
 					<div class="slider-nav"></div>
 				</div>
 				<div class="product-swapper">

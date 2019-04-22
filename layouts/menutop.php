@@ -13,7 +13,7 @@
 				.$value['hangSX']."</a></li>";
 	}
 	/*Check user đăng nhập*/
-	$htmlUser = "<a href='".$url."dangky.php'>Đăng ký</a><a href='".$dao->base_url()."dangnhap.php'>Đăng nhập</a>";
+	$htmlUser = "<a class='dang-ky' href='".$url."dangky.php'>Đăng ký</a><button class='dang-nhap'><a href='".$dao->base_url()."dangnhap.php'>Đăng nhập</a></button>";
 	if(isset($_SESSION["user"])){
 		$table = "user";
 		$id = $_SESSION["user"]["id"];
@@ -27,7 +27,7 @@
 <div id="menu-top">
 	<ul>
 		<li class="home-shop"><a href="<?php echo $urlHomeShop; ?>">Home<span>Shop</span></a></li>
-		<li><a>Điện thoại &rsaquo;</a>
+		<li><a>Điện thoại</a>
 			<ul class="list-hang">
 			<!-- Danh sách hãng sản phẩm -->
 			<?php echo $htmlHang; ?>
@@ -37,12 +37,14 @@
 	</ul>
 	<div class="top_search">
 		<div class="input-group">
-			<form action="" method="post">
-				<input type="text" name="search" class="form-control" placeholder="Search for...">
+			<form action="search.php" method="post">
+				<input type="text" name="search" class="search-input" placeholder="Search for...">
 				<span class="input-group-btn">
-					<button class="btn btn-default" type="submit">Go!</button>
+					<button class="btn btn-default" type="submit">Search</button>
 				</span>
 			</form>
+		</div>
+		<div class="data-search">
 		</div>
 	</div>
 	<div id="dang-nhap-dang-ky">
@@ -57,12 +59,26 @@
 	
 </div>
 <script type="text/javascript">
-	$('#gio-hang div').mouseover(function() {
-		$(this).css({"background-color" : "white"});
-		$('#gio-hang img').attr('src','static/images/shopping-cart.png');
-	});
-	$('#gio-hang div').mouseout(function() {
-		$(this).css({"background-color" : "#6b9cff"});
-		$('#gio-hang img').attr('src','static/images/shopping-cart(1).png');
+	$(document).ready(function(){
+		$('#gio-hang div').mouseover(function() {
+			$(this).css({"background-color" : "white"});
+			$('#gio-hang img').attr('src','static/images/shopping-cart.png');
+		});
+		$('#gio-hang div').mouseout(function() {
+			$(this).css({"background-color" : "#6b9cff"});
+			$('#gio-hang img').attr('src','static/images/shopping-cart(1).png');
+		});
+		$('.search-input').on("keyup", function(){
+			let data= $(this).val();
+  			$.ajax({
+	            url: "<?php echo $url ?>controller/service/search-product.php",
+	            method: "POST",
+	            dataType: "html",
+	            data: {search: data},
+	            success: function(res) {
+	                $('.data-search').html(res);
+	            },
+        	});
+		});
 	});
 </script>
