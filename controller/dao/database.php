@@ -58,16 +58,13 @@ class dao{
 
     function getById($table, $id){
         $conn = connectDB();
-        $arr = array();
         $sql = "SELECT * FROM {$table} WHERE id=".$id.";";
         $rs=$conn->query($sql);
         if($rs->num_rows > 0){
-            while($row = $rs->fetch_assoc()){
-                array_push($arr, $row);
-            }
+            $row = $rs->fetch_assoc();
+            return $row;
         }
-        $conn->close();
-        return $arr;
+        
     }
 
 

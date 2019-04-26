@@ -157,9 +157,9 @@ a {
 	box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 #show-gio-hang{
-	width: 800px;
+	width: 900px;
 	margin: 0px auto;
-	text-align: left;
+	text-align: center;
 	min-height: 100px;
 	border: 1px solid #e3dce8;
 }
@@ -168,6 +168,9 @@ a {
 	height: 30px;
 	line-height: 30px;
 	width: 150px;
+}
+#show-gio-hang table th{
+	text-align: center;
 }
 #so-luong-items{
 	position: absolute;
@@ -1163,7 +1166,6 @@ a {
 	border-radius: 25px;
 	margin: 2px 2px;
 	color: black;
-	border: 1px solid #93bcff;
 }
 .data-search{
 	margin: 10px 0px;
@@ -1215,4 +1217,19 @@ a {
 }
 .data-search li:hover{
 	background-color: #f9f9f9;
+}
+.report-text{
+	display: block;
+	float: right;
+	font-size: 16px;
+	margin-right: 70px;
+	margin-top: 5px;
+	color: #a9a9a9;
+}
+.report-text p{
+	font-family: Times New Roman;
+}
+.report-text strong {
+	color: black;
+	font-weight: bold;	
 }

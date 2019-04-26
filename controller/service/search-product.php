@@ -7,7 +7,7 @@
 	$htmlP = "";
 	if($name !== ""){
 		foreach ($arr as $row => $value) {
-		$htmlP .="<ul><li><a href='#'><img src='static/images/".$value['img']."'><div class='name-product'>".$value['namePro']."</div><div class='gia-product'>". number_format($value['gia'] ,0, "."," ") . " VNĐ</div></a></li></ul>";
+		$htmlP .="<ul><li><a href='chitiet.php?id=".$value['id']."'><img src='static/images/".$value['img']."'><div class='name-product'>".$value['namePro']."</div><div class='gia-product'>". number_format($value['gia'] ,0, "."," ") . " VNĐ</div></a></li></ul>";
 		}
 	}
 	

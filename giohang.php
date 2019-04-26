@@ -9,8 +9,54 @@
 <body>
 	<!-- PHP -->
 	<?php 
-		require_once ("layouts/menutop.php") 
+		require_once "controller/entity/Items";
+		require_once ("layouts/menutop.php");
 
+		$item = new Items();
+		$htmlItems = "";
+		$htmlFormUser = "";
+		if(isset($_SESSION['cartitems'])){
+			$arrItems = $_SESSION['cartitems'];
+			if(sizeof($arrItems)>0){
+				foreach ($arrItems as $key => $value ) {
+					$table = "product";
+					$id = $value->idProduct;
+					$product = $dao->getById($table,$id);
+					$donGia = (int) $product['gia']; $soLuong =(int) $value->soLuong; $tong = $donGia*$soLuong;
+					$htmlItems .= 
+					"<tr>
+						<form action='controller/service/giohang-update.php' method='post' accept-charset='UTF-8'>
+							<input type='hidden' value=".$id." name='idP' />
+							<td><img class='img-pro-gio-hang' src='static/images/".$product['img']."'></td>
+							<td><a href='chitiet.php?id=".$id."'>".$product['namePro']."</a></td>
+							<td><input style='width: 65px;' type='number' value=".$soLuong." name='quantity' min='1'/></td>
+							<td>".number_format($donGia,'0','.',' ')."</td>
+							<td>".number_format($tong,'0','.',' ')."</td>
+							<td><a  href='controller/service/giohang-del.php?id=".$id."'><img class='xoa-pro'>Delete</a></td>
+							<td><button type='submit'>Update</button></td>
+						</form>
+					</tr>";
+				}
+				/*foreach ($user as $key => $value) {
+					$htmlFormUser .= 
+					"<form action='' method='post'>
+						<div class='button-input'><input type='text' name='hoTen' placeholder='Họ và tên' ></div>
+						<div class='button-input diaChi-input'><input type='text' name='diaChi' placeholder='Địa chỉ' ></div>
+						<div class='button-input'>
+							<select name='maCN'>
+						    <option value='1'>Chi nhánh Hà Nội</option>
+						    <option value='2'>Chi nhánh Hồ Chí Minh</option>
+						  	</select>
+						</div>
+						<button class='button-gh button-tt' type='submit'>Thanh toán</button>
+					</form>";
+				}*/
+			}
+		}
+		else{
+			$htmlItems .= "<tr><td colspan='7'>Không có sản phẩm nào trong giỏ hàng.</td></tr>";
+		}
+		
 	?>
 	<!-- END PHP -->
 	<div id="s-title">
@@ -28,7 +74,6 @@
 			<table id="show-gio-hang" border="1" cellspacing="1" cellpadding="5" >
 				<thead>
 				<tr>
-					<th>STT</th>
 					<th style="min-width: 300px;" colspan="2" >Sản phẩm</th>
 					<th>Số lượng</th>
 					<th>Đơn giá</th>
@@ -38,45 +83,12 @@
 				</tr>
 				</thead>
 				<tbody>
-				<!--<c:forEach items="${sessionScope.carts}" var="cartItem" varStatus="status">
-					<tr>
-						<form action="" method="post" accept-charset="UTF-8">
-							<input type="hidden" value="${cartItem.matHang.maMH}" name="idP" />
-							<td></td>
-							<td><img class="img-pro-gio-hang" src=""></td>
-							<td><a href="<c:url value='/chi-tiet?id=${cartItem.matHang.maMH}'/>"></a></td>
-							<td><input style="width: 65px;" type="number" value="${cartItem.soLuong}" name="quantity" min="1"/></td>
-							<td></td>
-							<td></td>
-							<td><a  href="<c:url value='/remove-cart?idP=${cartItem.matHang.maMH}'/>"><img class="xoa-pro" src=""></a></td>
-							<td><button type="submit">Update</button></td>
-						</form>
-					</tr>
-				</c:forEach>-->
-				<c:if test="${empty sessionScope.carts}">
-				<tr>
-					<td colspan="7">Không có sản phẩm nào trong giỏ hàng.</td>
-				</tr>
-				</c:if>
+				<?php echo "$htmlItems"; ?>
 				</tbody>
 			</table>
 			
 			<div id="button">
-				<c:if test="${not empty sessionScope.carts}">
-					<c:url value="/member/phuong-thuc-thanh-toan" var="url"></c:url>
-					<form action="${url}" method="post">
-						<div class="button-input"><input type="text" name="hoTen" placeholder="Họ và tên" ></div>
-						<div class="button-input"><input type="text" name="sdt" placeholder="Số điện thoại"></div>
-						<div class="button-input diaChi-input"><input type="text" name="diaChi" placeholder="Địa chỉ" ></div>
-						<div class="button-input">
-							<select name="maCN">
-						    <option value="1">Chi nhánh Hà Nội</option>
-						    <option value="2">Chi nhánh Hồ Chí Minh</option>
-						  	</select>
-						</div>
-						<button class="button-gh button-tt" type="submit">Thanh toán</button>
-					</form>
-				</c:if>
+				<?php echo "$htmlFormUser"; ?>
 			</div>
 			
 	</div>

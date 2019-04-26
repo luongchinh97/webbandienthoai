@@ -12,26 +12,25 @@
 	<?php 
 		require_once "layouts/menutop.php"; 
 		$idProduct = $_GET['id'];
-		$Product = $dao->getById("product",$idProduct);
+		$table = "product";
+		$Product = $dao->getById($table,$idProduct);
 		$htmlSPCT = ""; $htmlTitle = "";
-		foreach ($Product as $row => $value) {
-			$htmlSPCT.=
-			"<div id='img-product'><img src='static/images/".$value['img']."'/></div>
+		$htmlSPCT.=
+			"<div id='img-product'><img src='static/images/".$Product['img']."'/></div>
 			<div id='noi-dung-chi-tiet'>
-				<p class='id-product' style='display: none;'>".$value['id']."</p>
-				<h4 class='name-product'>Tên : ".$value['namePro']."</h4>
-				<p class='gia-product'>Giá : ".$value['gia']."</p>
-				<h5>Hãng SX : ".$value['hangSX']."</h5>
+				<p class='id-product' style='display: none;'>".$Product['id']."</p>
+				<h4 class='name-product'>Tên : ".$Product['namePro']."</h4>
+				<p class='gia-product'>Giá : ".$Product['gia']."</p>
+				<h5>Hãng SX : ".$Product['hangSX']."</h5>
 				<p></p>
 				<p class='add-to-cart-2'><a class='add-to-cart' href='#'>Add to Cart</a></p>
 				<p><a href='#'>Mua ngay</a></p>
 			</div>";
-			$htmlTitle.=
+		$htmlTitle.=
 			"<p><a href='".$urlHomeShop."'>HOME</a>/
-			<a class='link-danh-muc' href='".$url."product.php?hangSX=".$value['hangSX']."'>
-			<span class='danh-muc-product'>".$value['hangSX']."</span></a>/
-			<span class='name-product'>".$value['namePro']."</span></p>";
-		}
+			<a class='link-danh-muc' href='".$url."product.php?hangSX=".$Product['hangSX']."'>
+			<span class='danh-muc-product'>".$Product['hangSX']."</span></a>/
+			<span class='name-product'>".$Product['namePro']."</span></p>";
 	?>
 	<!-- END PHP -->
 

@@ -19,7 +19,10 @@
 		$id = $_SESSION["user"]["id"];
 		$htmlUser = "<a href='#'>".$dao->getById($table, $id)."</a>";
 	}
-
+	$tongItems = 0;
+	if(isset($_SESSION['tongItems'])){
+		$tongItems = $_SESSION['tongItems'];
+	}
  ?>
  <!-- END CODE PHP -->
 
@@ -37,10 +40,10 @@
 	</ul>
 	<div class="top_search">
 		<div class="input-group">
-			<form action="search.php" method="post">
+			<form action="search.php" method="get">
 				<input type="text" name="search" class="search-input" placeholder="Search for...">
 				<span class="input-group-btn">
-					<button class="btn btn-default" type="submit">Search</button>
+					<button type="submit">Search</button>
 				</span>
 			</form>
 		</div>
@@ -52,33 +55,21 @@
 	</div>
 	<div id="gio-hang">
 		<div>
-			<a href="#"><img src="static/images/shopping-cart(1).png"></a>
+			<a href="giohang.php"><img src="static/images/shopping-cart(1).png"></a>
 		</div>
-		<span id="so-luong-items">0</span>
+		<p id="so-luong-items">
+			<?php echo "$tongItems"; ?>
+		</p>
 	</div>
 	
 </div>
+<script type="text/javascript" src="static/js/myjs.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#gio-hang div').mouseover(function() {
-			$(this).css({"background-color" : "white"});
-			$('#gio-hang img').attr('src','static/images/shopping-cart.png');
-		});
-		$('#gio-hang div').mouseout(function() {
-			$(this).css({"background-color" : "#6b9cff"});
-			$('#gio-hang img').attr('src','static/images/shopping-cart(1).png');
-		});
+		cartItems();
 		$('.search-input').on("keyup", function(){
-			let data= $(this).val();
-  			$.ajax({
-	            url: "<?php echo $url ?>controller/service/search-product.php",
-	            method: "POST",
-	            dataType: "html",
-	            data: {search: data},
-	            success: function(res) {
-	                $('.data-search').html(res);
-	            },
-        	});
+			let data = $(this).val();
+			showListSearchProduct(data);
 		});
 	});
 </script>
