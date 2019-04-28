@@ -1,11 +1,10 @@
 <div id="footer">
 	<div class="footer-contents">
-		
 		<h3 style="font-size: 20px;">
 			Home<span style="color: pink; font-size: 25px;">Shop</span>
 		</h3>
 		<ul>
-			<li><a href="<?php echo $urlHomeshop; ?>">Shop</a></li>
+			<li><a href="index.php">Shop</a></li>
 			<li><a href="#">Khuyễn mãi</a></li>
 			<li><a href="#">Công nghệ</a></li>
 			<li><a href="#">Hỏi đáp</a></li>

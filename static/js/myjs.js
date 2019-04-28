@@ -28,7 +28,7 @@ function loadProduct(list){
     var classD = 'product-detail';
     var classB = 'product-box';
     $.each(list, function(index, element){
-    	productSwapperHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p ><a class = "add-to-cart" href="giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+ num_format(element.gia)+' VNĐ</h5></div></div>';
+    	productSwapperHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p ><a class = "add-to-cart" href="controller/service/giohang-add.php?id='+element.id+'">Add to Cart</a></p><h5>'+ num_format(element.gia)+' VNĐ</h5></div></div>';
     });
     $('.product-swapper').html(productSwapperHtml);
     $('.id-product').hide();
@@ -45,7 +45,7 @@ function loadProduct(list){
 		}else if(keyRAM !== 'Tất cả' && keyTien ==='Tất cả'){
 			$.each(list, function(index, element){
 		       	if (element.RAM===keyRAM) {
-		       		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="../giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+'  VNĐ</h5></div></div>';
+		       		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="controller/service/giohang-add.php?id='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+'  VNĐ</h5></div></div>';
 		       		product.push(element);
 		        }
 	    	});
@@ -72,7 +72,7 @@ function loadProduct(list){
 			$.each(list, function(index, element){
 		   		var gia = parseInt(element.gia);
 		       	if (gia<max && gia>min) {
-		       		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="../giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
+		       		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="controller/service/giohang-add.php?id='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
 		       		product.push(element);
 		        }
 	        });
@@ -99,7 +99,7 @@ function loadProduct(list){
 			$.each(list, function(index, element){
 		   		var gia = parseInt(element.gia);
 		        if (gia<max && gia>min && element.RAM === keyRAM) {
-		       		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="../giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
+		       		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="controller/service/giohang-add.php?id='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
 		       		product.push(element);
 		        }
 	    	});
@@ -126,7 +126,7 @@ function loadProduct(list){
 		}else if(keyRAM !== 'Tất cả' && keyTien === 'Tất cả'){
 			$.each(list, function(index, element){
 	    		if (element.RAM === keyRAM) {
-	        		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
+	        		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="controller/service/giohang-add.php?id='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
 	     			product.push(element);
 	    		}
 	  		});
@@ -153,7 +153,7 @@ function loadProduct(list){
 			$.each(list, function(index, element){
 	 		 	var gia = parseInt(element.gia);
 	     	 	if (gia<max && gia>min) {
-		     		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="../giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
+		     		productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="controller/service/giohang-add.php?id='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
 		     		product.push(element);
 	          	}
 	      	});
@@ -180,7 +180,7 @@ function loadProduct(list){
 			$.each(list, function(index, element){
 	 		 	var gia = parseInt(element.gia);
 	     	 	if (gia<max && gia>min && element.RAM===keyRAM) {
-	     		 	productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="giohang.php?idP='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
+	     		 	productHtml += '<div class="'+classB+'"><img src="static/images/'+element.img+'"/><div class="'+classD+'"><h4><a href = "chitiet.php?id='+element.id+'">'+element.namePro+'</a></h4><p class="id-product">'+element.id+'</p><p><a class = "add-to-cart" href="controller/service/giohang-add.php?id='+element.id+'">Add to Cart</a></p><h5>'+num_format(element.gia)+' VNĐ</h5></div></div>';
 	     		 	product.push(element);
 	          	}
 	      	});
@@ -229,4 +229,19 @@ function setTypeShowProduct(){
     	  classD='product-detail-after-after';
     	  classB='product-box-after-after';
       });
+}
+function checkAddress(){
+	let province = $('#province').val();
+	let district = $('#district').val();
+	let ward = trim($('#ward').val());
+	let address = $("#diaChi").val();
+	if(province==0){
+		alert("Chưa chọn Tỉnh/Thành phố.");
+	}else if(district==0){
+		alert("Chưa chọn Quận/Huyện.");
+	}else if(ward==0){
+		alert("Chưa chọn Xã/Phường");
+	}else if(address==""){
+		alert("Chưa nhập địa chỉ.");
+	}
 }

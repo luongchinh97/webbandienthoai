@@ -14,28 +14,14 @@
 		$idProduct = $_GET['id'];
 		$table = "product";
 		$Product = $dao->getById($table,$idProduct);
-		$htmlSPCT = ""; $htmlTitle = "";
-		$htmlSPCT.=
-			"<div id='img-product'><img src='static/images/".$Product['img']."'/></div>
-			<div id='noi-dung-chi-tiet'>
-				<p class='id-product' style='display: none;'>".$Product['id']."</p>
-				<h4 class='name-product'>Tên : ".$Product['namePro']."</h4>
-				<p class='gia-product'>Giá : ".$Product['gia']."</p>
-				<h5>Hãng SX : ".$Product['hangSX']."</h5>
-				<p></p>
-				<p class='add-to-cart-2'><a class='add-to-cart' href='#'>Add to Cart</a></p>
-				<p><a href='#'>Mua ngay</a></p>
-			</div>";
-		$htmlTitle.=
-			"<p><a href='".$urlHomeShop."'>HOME</a>/
-			<a class='link-danh-muc' href='".$url."product.php?hangSX=".$Product['hangSX']."'>
-			<span class='danh-muc-product'>".$Product['hangSX']."</span></a>/
-			<span class='name-product'>".$Product['namePro']."</span></p>";
 	?>
 	<!-- END PHP -->
 
 	<div id="s-title">
-		<?php echo "$htmlTitle"; ?>
+		<p><a href="<?php echo $urlHomeShop;?>">HOME</a>/
+			<a class="link-danh-muc" href="<?php echo $url;?>product.php?hangSX=<?php echo $Product['hangSX'];?>">
+			<span class="danh-muc-product"><?php echo $Product['hangSX'];?></span></a>/
+			<span class='name-product'><?php echo $Product['namePro'];?></span></p>"
 		<h1>Chi tiết</h1>
 		<p>
 			<a href="#">&larr; Back to Home</a>
@@ -43,7 +29,16 @@
 	</div>
 	<div id="chi-tiet">
 		<div id="chi-tiet-product">
-			<?php echo "$htmlSPCT"; ?>
+			<div id="img-product"><img src="static/images/<?php echo $Product['img'];?>"/></div>
+			<div id="noi-dung-chi-tiet">
+				<p class="id-product" style="display: none;"><?php echo $Product['id'];?></p>
+				<h4 class="name-product"><?php echo $Product['namePro'];?> </h4>
+				<p class='gia-product'><?php echo number_format($Product['gia'],'0','.',' ');?> VNĐ</p>
+				<h5>Hãng SX : <?php echo $Product['hangSX']; ?></h5>
+				<p></p>
+				<p class="add-to-cart-2"><a class="add-to-cart" href="controller/service/giohang-add.php?id=<?php echo $Product['id']; ?>">MUA NGAY</a></p>
+				<a href="">Xem chi tiết mặt hàng</a>
+			</div>
 		</div>
 	</div>
 	<?php require_once "layouts/footer.php" ?>

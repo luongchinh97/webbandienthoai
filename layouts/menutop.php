@@ -15,9 +15,17 @@
 	/*Check user đăng nhập*/
 	$htmlUser = "<a class='dang-ky' href='".$url."dangky.php'>Đăng ký</a><button class='dang-nhap'><a href='".$dao->base_url()."dangnhap.php'>Đăng nhập</a></button>";
 	if(isset($_SESSION["user"])){
-		$table = "user";
-		$id = $_SESSION["user"]["id"];
-		$htmlUser = "<a href='#'>".$dao->getById($table, $id)."</a>";
+		$user = $_SESSION["user"];
+		$htmlUser = "<div class=tt-user>
+						<div class='name-user'>  ".$user['name']."  </div>
+						<div class='ql-user'>
+							<ul>
+								<li><i class='far fa-smile'></i><a href='#'>Quản lý tài khoản</a></li>
+								<li><i class='fas fa-box'></i><a href='#'>Đơn hàng của tôi</a></li>
+								<li><i class='fas fa-sign-out-alt'></i><a href='dangxuat.php'>Đăng xuất</a></li>
+							</ul>
+						</div>
+					</div>	";
 	}
 	$tongItems = 0;
 	if(isset($_SESSION['tongItems'])){
@@ -25,7 +33,6 @@
 	}
  ?>
  <!-- END CODE PHP -->
-
 <div id="temp"></div>
 <div id="menu-top">
 	<ul>
@@ -64,12 +71,22 @@
 	
 </div>
 <script type="text/javascript" src="static/js/myjs.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		cartItems();
 		$('.search-input').on("keyup", function(){
 			let data = $(this).val();
 			showListSearchProduct(data);
+		});
+		$('.name-user').on("mouseover", function(){
+			$('.ql-user').show();
+		});
+		$('.ql-user').on("mouseover", function(){
+			$('.ql-user').show();
+		});
+		$('.ql-user').on("mouseout", function(){
+			$('.ql-user').hide();
 		});
 	});
 </script>

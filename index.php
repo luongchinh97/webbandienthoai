@@ -20,7 +20,7 @@
 				<div class='product-detail'>
 					<h4><a href='chitiet.php?id=".$value['id']."'>".$value['namePro']."</a></h4>
 					<p class='id-product'>".$value['id']."</p>
-					<p><a class='add-to-cart' href='controller/service/giohang-add.php?id=".$value['id']."'>Add to Cart</a></p>".$value['gia']." VNĐ
+					<p><a class='add-to-cart' href='controller/service/giohang-add.php?id=".$value['id']."'>Add to Cart</a></p>".number_format($value['gia'],'0','.',' ')." VNĐ
 				</div>
 			</div>";
 		}
@@ -30,7 +30,7 @@
 				<div class='product-detail'>
 					<h4><a href='chitiet.php?id=".$value['id']."'>".$value['namePro']."</a></h4>
 					<p class='id-product'>".$value['id']."</p>
-					<p><a class='add-to-cart' href='controller/service/giohang-add.php?id=".$value['id']."'>Add to Cart</a></p>".$value['gia']." VNĐ
+					<p><a class='add-to-cart' href='controller/service/giohang-add.php?id=".$value['id']."'>Add to Cart</a></p>".number_format($value['gia'],'0','.',' ')." VNĐ
 				</div>
 			</div>";
 		}
@@ -108,6 +108,6 @@
 			</div>
 		</div>
 	</div>
-	<?php require_once ("layouts/footer.php") ?>
+	<?php require_once ("layouts/footer.php"); ?>
 </body>
 </html>

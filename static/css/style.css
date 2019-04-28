@@ -18,7 +18,11 @@ p {
 a {
 	text-decoration: none;
 }
-
+button{
+	background-color: #ffffff;
+	cursor: pointer;
+	outline: none;
+}
 #header {
 	width: 100%;
 	height: 450px;
@@ -132,7 +136,7 @@ a {
 	line-height: 50px;
 	float: right;	
 }
-#dang-nhap-dang-ky a{
+#dang-nhap-dang-ky > a{
 	margin: 10px;
 	color: black;
 }
@@ -162,6 +166,7 @@ a {
 	text-align: center;
 	min-height: 100px;
 	border: 1px solid #e3dce8;
+	border-radius: 10px;
 }
 #show-gio-hang th{
 	background-color: #fff6dd;
@@ -171,6 +176,9 @@ a {
 }
 #show-gio-hang table th{
 	text-align: center;
+}
+#show-gio-hang button{
+	background-color: #fcfcfc;
 }
 #so-luong-items{
 	position: absolute;
@@ -216,21 +224,20 @@ a {
 }
 .button-gh{
 	float: left;
-	width: 200px;
-	height: 40px;
+	width: 230px;
+	height: 45px;
 	font-size: 16px;
 	line-height: 40px;
 	text-align: center;
-	margin: 5px auto;
+	margin: 10px 15px;
 	cursor: pointer;
+	margin-left: 5px; 
 }
 .button-gh:HOVER{
 	background-color: #ff8228;
 }
 .button-tt{
-	clear: left;
 	background-color: #f9ef2a;
-	margin-left: 15px;
 	border-radius:5px; 
 }
 .button-mt{
@@ -1232,4 +1239,97 @@ a {
 .report-text strong {
 	color: black;
 	font-weight: bold;	
+}
+.button-pp{
+	width: 230px;
+	height: 45px;
+	background-color: #fff;
+	cursor: pointer;
+	margin: 10px 15px;
+}
+.address{
+	width: 100%;
+	border-top: 1px solid #d8d8d8;
+	margin: 50px auto;
+	padding-top:20px;
+}
+.address select{
+	clear: left;
+    position: relative;
+    width: 40%;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #288ad6;
+    padding: 10px 1.5% 6px;
+    margin: 10px 10px;
+}
+.address input{
+	clear: left;
+    position: relative;
+    width: 40%;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #288ad6;
+    padding: 10px 1.5% 6px;
+    margin: 10px 10px;
+}
+.address b{
+	margin: 10px 10px;
+}#show-gio-hang tfoot{
+	background-color: #fff6dd;
+	font-weight: bold;
+}
+.name-user{
+	float: right;
+	margin-top:10px; 
+	width: 140px;
+	height: 28px;
+	background-color: #043077;
+	line-height: 28px;
+	font-size: 15px;
+	border-radius: 10px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: underline;
+	border: 2px solid #4d668e;
+}
+.ql-user{
+	float: right;
+	width: 144px;
+	display: none;
+	height: 90px;
+}
+.ql-user > ul{
+	padding: 0px;
+	margin-top: 6px;
+	width: 100%;
+	height: 84px;
+	font-size: 16px;
+	overflow: hidden;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+.ql-user > ul > li{
+	padding-left: 5px; 
+	font-size: 14px;
+	width: 100%;
+	height: 28px;
+	text-align: left;
+	line-height: 28px;
+	background-color: #fff;
+	border-bottom: 1px dotted #ccc;
+	color: #757575;
+}
+.ql-user > ul > li > a{
+	color: #757575;
+	margin-left: 10px; 
+}
+.ql-user > ul > li > a:hover{
+	text-decoration:underline;
+	color: red;
 }

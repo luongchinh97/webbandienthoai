@@ -25,6 +25,7 @@ $dao= new dao;
  					<td></td>
  				</tr>
  				<?php 
+ 				$html = "";
  				$rs=$dao->getPayment();
  					while($row=$rs->fetch_assoc()){
  						$html.="<tr><td>".$row['id']."</td>

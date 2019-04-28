@@ -51,14 +51,14 @@ class dao{
 
     function delete($table, $id) {
         $conn = connectDB();
-        $sql = "DELETE FROM {$table} WHERE id=".$id.";";
+        $sql = "DELETE FROM `{$table}` WHERE id=".$id.";";
         $conn->query($sql);
         $conn->close();
     }
 
     function getById($table, $id){
         $conn = connectDB();
-        $sql = "SELECT * FROM {$table} WHERE id=".$id.";";
+        $sql = "SELECT * FROM `{$table}` WHERE id=".$id.";";
         $rs=$conn->query($sql);
         if($rs->num_rows > 0){
             $row = $rs->fetch_assoc();
@@ -67,7 +67,19 @@ class dao{
         
     }
 
-
+    function getAll($table){
+        $conn = connectDB();
+        $sql = "SELECT * FROM {$table};";
+        $arr = array();
+        $rs=$conn->query($sql);
+        if($rs->num_rows > 0){
+            while($row =$rs->fetch_assoc()){
+                array_push($arr,$row);
+            }
+        }
+        $conn->close();
+        return $arr;
+    }
     /* Product Function */
 
     function getHangProduct(){
@@ -151,10 +163,85 @@ class dao{
     function getProduct($ram, $gia){
         if($ram === "Tất cả" && $gia ==="Tất cả");
     }
-    /* Order Function */
+    /* Get Quan/Huyen/Tinh*/
+    function getDistrict($id){
+        $conn = connectDB();
+        $arr = array();
+        $sql = "SELECT * FROM district WHERE provinceid = '".$id."';";
+        $rs = $conn->query($sql);
+        if($rs->num_rows>0){
+            while($row = $rs->fetch_assoc()){
+                array_push($arr, $row);
+            }
+        }
+        $conn->close();
+        return $arr;
+    }
 
+    function getWard($id){
+        $conn= connectDB();
+        $arr = array();
+        $sql = "SELECT * FROM ward WHERE districtid = '".$id."';";
+        $rs=$conn->query($sql);
+        if($rs->num_rows>0){
+            while ($row=$rs->fetch_assoc()) {
+                array_push($arr, $row);
+            }
+        }
+        $conn->close();
+        return $arr;
+    }
+    /* Order Function */
+    function insertOrder($order){
+        $conn = connectDB();
+        $sql = "INSERT INTO `order` (idUser, tongGia, soLuong, maTinh, maQH, maPX, diaChi) VALUES (".$order['idUser'].",'".$order['tongGia']."', ".$order['soLuong'].", '".$order['maTinh']."','".$order['maQH']."','".$order['maPX']."','".$order['diaChi']."');";
+        $rs = $conn->query($sql);
+        $id = $conn->insert_id;
+        return $id;
+        $conn->close();
+    }
+    function getAddress($orderID){
+        $conn = connectDB();
+        $sql = "SELECT province.name as tinh, district.name as QH, ward.name as XP, `order`.diaChi as diaChi FROM `order`, district, province, ward WHERE id = $orderID AND maTinh = province.provinceid AND maQH = district.districtid AND maPX = ward.wardid;";
+        $rs = $conn->query($sql);
+        if($rs->num_rows>0){
+            $row = $rs->fetch_assoc();
+        }
+        $address = $row['diaChi'].", ".$row['XP'].", ".$row['QH'].", ".$row['tinh'].".";
+        return $address;
+
+    }
+    /* CartItems Functon */
+    function insertItems($item){
+        $conn = connectDB();
+        $sql = "INSERT INTO cartitems (idOrder, idProduct, soLuong) VALUES ('".$item->idOrder."','".$item->idProduct."','".$item->soLuong."');";
+        $rs = $conn->query($sql);
+        $conn->close();
+    }
+    function getItemByOrderID($orderID){
+        $conn = connectDB();
+        $sql = "SELECT * FROM cartitems WHERE idOrder = $orderID;";
+        $arr =array();
+        $rs = $conn->query($sql);
+        if($rs->num_rows > 0){
+            while($row=$rs->fetch_assoc()){
+                array_push($arr,$row);
+            }
+        }
+        return $arr;
+    }
     /* User Function */
-    
+    function checkLogin($username,$password){
+        $conn = connectDB();
+        $sql = "SELECT * FROM user WHERE username='$username' AND password='$password';";
+        $rs = $conn->query($sql);
+        if($rs->num_rows >0){
+            $row = $rs->fetch_assoc();
+            return $row;
+        }else{
+            return "";
+        }
+    }
 }
     
  ?>
