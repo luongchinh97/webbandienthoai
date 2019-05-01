@@ -6,6 +6,7 @@
 	<link href="static/css/style.css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" charset="utf8" src="static/js/jquery-3.2.1.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 </head>
 <body>
 	<!-- PHP -->
@@ -16,7 +17,10 @@
 		$htmlSBC = ""; $htmlSM = "";
 		foreach ($spBanChay as $row => $value ) {
 			$htmlSBC.=
-			"<div class='product-box'><img src='static/images/".$value['img']."'/>
+			"<div class='product-box'>
+				<div class='product-img'>
+					<img src='static/images/".$value['img']."'/>
+				</div>
 				<div class='product-detail'>
 					<h4><a href='chitiet.php?id=".$value['id']."'>".$value['namePro']."</a></h4>
 					<p class='id-product'>".$value['id']."</p>
@@ -26,7 +30,10 @@
 		}
 		foreach ($spMoi as $row => $value) {
 			$htmlSM.=
-			"<div class='product-box'><img src='static/images/".$value['img']."'/>
+			"<div class='product-box'>
+				<div class='product-img'>
+					<img src='static/images/".$value['img']."'/>
+				</div>
 				<div class='product-detail'>
 					<h4><a href='chitiet.php?id=".$value['id']."'>".$value['namePro']."</a></h4>
 					<p class='id-product'>".$value['id']."</p>

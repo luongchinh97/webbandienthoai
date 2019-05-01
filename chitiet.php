@@ -5,6 +5,7 @@
 <title>Chi tiet</title>
 <link href="static/css/style.css" rel="stylesheet" />
 <script type="text/javascript" charset="utf8" src="static/js/jquery-3.2.1.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -31,16 +32,78 @@
 		<div id="chi-tiet-product">
 			<div id="img-product"><img src="static/images/<?php echo $Product['img'];?>"/></div>
 			<div id="noi-dung-chi-tiet">
-				<p class="id-product" style="display: none;"><?php echo $Product['id'];?></p>
-				<h4 class="name-product"><?php echo $Product['namePro'];?> </h4>
-				<p class='gia-product'><?php echo number_format($Product['gia'],'0','.',' ');?> VNĐ</p>
-				<h5>Hãng SX : <?php echo $Product['hangSX']; ?></h5>
-				<p></p>
-				<p class="add-to-cart-2"><a class="add-to-cart" href="controller/service/giohang-add.php?id=<?php echo $Product['id']; ?>">MUA NGAY</a></p>
-				<a href="">Xem chi tiết mặt hàng</a>
+				<div class="id-product" style="display: none;"><?php echo $Product['id'];?></div>
+				<h4><?php echo strtoupper($Product['namePro']);?> </h4>
+				<div class="noi-dung-sp-chi-tiet">
+					<div class="gia-product-chi-tiet">- Giá: <strong><?php echo number_format($Product['gia'],'0','.','.');?>đ</strong></div>
+					<h5>- Hãng: <?php echo $Product['hangSX']; ?></h5>
+					<h5>- Năm sx: <?php echo $Product['namSX'] ?></h5>
+				</div>
+				<div class="button-chi-tiet">
+					<a class="add-to-cart" href="controller/service/giohang-add.php?id=<?php echo $Product['id']; ?>">MUA NGAY</a>
+					<a class="chi-tiet" id="button-ttct" style="background-image: linear-gradient(-180deg,#288ad6 0%,#0e74c3 100%);">Xem chi tiết mặt hàng</a>
+				</div>
+			</div>
+		</div>
+		<div class="thong-tin-chi-tiet">
+			<div class="text-chi-tiet">
+				<h3 style="text-decoration: underline;">Đặc điểm nổi bật của <?php echo $Product['namePro'] ?></h3>
+				<div class="content-chi-tiet"><?php echo $Product['moTa']; ?></div>
+			</div>
+			<div class="thong-so-ky-thuat">
+				<h2>Thông số kỹ thuật</h2>
+				<ul class="parameter">
+					<li>
+						<span>Màn hình:</span>
+						<div><?php echo $Product['manHinh'] ?></div>
+					</li>
+					<li>
+						<span>Hệ điều hành:</span>
+						<div><?php echo $Product['heDieuHanh'] ?></div>
+					</li>
+					<li>
+						<span>Camera trước:</span>
+						<div><?php echo $Product['cameraTruoc'] ?></div>
+					</li>
+					<li>
+						<span>Camera sau:</span>
+						<div><?php echo $Product['cameraSau'] ?></div>
+					</li>
+					<li>
+						<span>CPU:</span>
+						<div></div>
+					</li>
+					<li>
+						<span>RAM:</span>
+						<div><?php echo $Product['RAM'] ?></div>
+					</li>
+					<li>
+						<span>Bộ nhớ trong:</span>
+						<div><?php echo $Product['ROM'] ?></div>
+					</li>
+					<li>
+						<span>Dung lượng pin:</span>
+						<div><?php echo $Product['PIN'] ?></div>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
 	<?php require_once "layouts/footer.php" ?>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			let dem = 0;
+			$('#button-ttct').on("click", function(){
+				if(dem%2==0){
+					$('.thong-tin-chi-tiet').show();
+					dem++;
+				}else{
+					$('.thong-tin-chi-tiet').hide();
+					dem++;
+				}
+			});
+		});
+		
+	</script>
 </body>
 </html>

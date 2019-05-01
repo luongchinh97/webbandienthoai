@@ -50,10 +50,6 @@
 		foreach ($arrTinh as $key => $value) {
 			$htmlTinh .="<option value='".$value['provinceid']."'>".$value['name']."</option>";
 		}
-		$userJson = "";
-		if(isset($_SESSION['user'])){
-			$userJson = json_encode($_SESSION['user']);
-		}
 		/* Thanh toán khi nhận hàng */
 		if(isset($_POST['tt'])){
 			if(isset($_SESSION['user'])){
@@ -64,9 +60,10 @@
 				$districtID = $_POST['district'];
 				$wardID = $_POST['ward'];
 				$diaChi = $_POST['address'];
+				$ngayLap = date("Y-m-d");
 				$tongTien = $_SESSION['tongTien'];
 				$idUser = (int) $user['id'];
-				$order = array("idUser"=>$idUser, "tongGia"=>$tongTien, "soLuong"=>$tongItems, "maTinh"=>$provinceID, "maQH"=>$districtID, "maPX"=>$wardID, "diaChi"=>$diaChi);
+				$order = array("idUser"=>$idUser,"ngayLap"=>$ngayLap, "tongGia"=>$tongTien, "soLuong"=>$tongItems, "maTinh"=>$provinceID, "maQH"=>$districtID, "maPX"=>$wardID, "diaChi"=>$diaChi);
 				$dao = new dao;
 				$orderID = $dao->insertOrder($order);
 				$item =  new Items;

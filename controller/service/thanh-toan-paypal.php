@@ -11,9 +11,10 @@
 	$districtID = $address['districtID'];
 	$wardID = $address['wardID'];
 	$diaChi = $address['diaChi'];
+	$ngayLap = date("Y-m-d");
 	$tongTien = $_SESSION['tongTien'];
 	$idUser = (int) $user['id'];
-	$order = array("idUser"=>$idUser, "tongGia"=>$tongTien, "soLuong"=>$tongItems, "maTinh"=>$provinceID, "maQH"=>$districtID, "maPX"=>$wardID, "diaChi"=>$diaChi);
+	$order = array("idUser"=>$idUser,"ngayLap"=>$ngayLap, "tongGia"=>$tongTien, "soLuong"=>$tongItems, "maTinh"=>$provinceID, "maQH"=>$districtID, "maPX"=>$wardID, "diaChi"=>$diaChi);
 	$dao = new dao;
 	$orderID = $dao->insertOrder($order);
 	$item =  new Items;

@@ -194,7 +194,7 @@ class dao{
     /* Order Function */
     function insertOrder($order){
         $conn = connectDB();
-        $sql = "INSERT INTO `order` (idUser, tongGia, soLuong, maTinh, maQH, maPX, diaChi) VALUES (".$order['idUser'].",'".$order['tongGia']."', ".$order['soLuong'].", '".$order['maTinh']."','".$order['maQH']."','".$order['maPX']."','".$order['diaChi']."');";
+        $sql = "INSERT INTO `order` (idUser, ngayLap, tongGia, soLuong, maTinh, maQH, maPX, diaChi) VALUES (".$order['idUser'].",'".$order['ngayLap']."','".$order['tongGia']."', ".$order['soLuong'].", '".$order['maTinh']."','".$order['maQH']."','".$order['maPX']."','".$order['diaChi']."');";
         $rs = $conn->query($sql);
         $id = $conn->insert_id;
         return $id;
