@@ -57,38 +57,44 @@ function show(){
     <?php include_once ("../../layouts/Header.php")?>
     <div class="content">
         <div class="animated fadeIn">
-            <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <strong class="card-title">Danh sách hóa đơn</strong>
-                <div>
-                <form method="POST" action="index2.php">
-                    <label>Tìm kiếm theo ngày :</label> <input type="text" name="key" placeholder="Nhập ngày cần tìm ">
-                    <input type="submit" name="submit" value="Tìm">
-                </form>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <strong class="card-title">Danh sách hóa đơn</strong>
                 </div>
-             </div>
-            <div style="font-size: 14px" class="card-body">
-                <table id="bootstrap-data-table" class="table_user_list table table-striped table-bordered">
+                <div style="margin: 10px 20px">
+                  <form method="POST" action="index2.php" class="form-horizontal">
+                      <div class="row form-group">
+                        <div class="col col-md-2">
+                          <label class="form-control-label">Tìm kiếm:</label> 
+                        </div>
+                        <div class="col-12 col-md-3">
+                          <input class="form-control" type="text" name="key" placeholder="Nhập ngày cần tìm ">
+                        </div>
+                        <input class="btn btn-secondary" type="submit" name="submit" value="Tìm">
+                      </div>
+                  </form>
+                </div>
+                <div style="font-size: 14px" class="card-body">
+                    <table id="bootstrap-data-table" class="table_user_list table table-striped table-bordered">
+                    </table>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
       <div class="clearfix"></div>
   </div>
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
   <script>
      jQuery(function ($){
-       console.log("<?php echo show(); ?>");
-       let html="<?php echo show(); ?>";
-                $('.table_user_list').html(html);
+        let html="<?php echo show(); ?>";
+        $('.table_user_list').html(html);
        });
    </script>
 </body>

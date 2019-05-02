@@ -1,8 +1,7 @@
 <?php 
 	require_once ("../../../controller/dao/database.php");
 	$dao = new dao;
-	$arr = $dao->getAll("slider");
-	$time = $dao->getById("time-slider",1);
+	$arr = $dao->getAll("quangcao");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +27,7 @@
 	            <div class="col-lg-12">
 	                <div class="card">
 	                    <div class="card-header">
-	                        <strong class="card-title" >Slider website</strong>
+	                        <strong class="card-title" >Quảng cáo website</strong>
 	                    </div>
 	                    <div class="table-stats order-table ov-h">
 	                    	<table class="table">
@@ -36,8 +35,8 @@
 	                    			<tr>
 		                    			<th class="serial">#</th>
 		                    			<th>ID</th>
+		                    			<th>Nội dung</th>
 		                    			<th>Images</th>
-		                    			<th>URL</th>
 		                    			<th>Thao tác</th>
 	                    			</tr>
 	                    		</thead>
@@ -46,26 +45,13 @@
 	                    			<tr>
 	                    				<td class="serial"><?php echo (int)$key+1 ?></td>
 	                    				<td><?php echo $value['id']  ?></td>
+	                    				<td><?php echo $value['noiDung'] ?></td>
 	                    				<td><?php echo $value['img'] ?></td>
-	                    				<td><?php echo $value['url'] ?></td>
 	                    				<td><a href="update.php?id=<?php echo $value['id']; ?>">Update</a></td>
 	                    			</tr>
 	                    			<?php } ?>
 	                    		</tbody>
 	                    	</table>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-lg-6">
-	            	<div class="card">
-	                    <div class="card-body">
-	                    	<form>
-	                    		<div class="form-group">
-	                    			<label class="control-label mb-1">Thời gian chuyển slide:</label>
-	                    			<input type="number" name="time-slide" class="form-control cc-name valid" min="1" value="<?php echo $time['time'] ?>">
-	                    			<input type="submit" name="submit" class="btn btn-outline-secondary" style="margin-top: 10px;" value="Lưu">
-	                    		</div>
-	                    	</form>
 	                    </div>
 	                </div>
 	            </div>

@@ -43,7 +43,7 @@
 			<?php echo $htmlHang; ?>
 			</ul>
 		</li>
-		<li><a href="#">Bảo hành</a></li>
+		<li><a href="baohanh.php">Bảo hành</a></li>
 	</ul>
 	<div class="top_search">
 		<div class="input-group">

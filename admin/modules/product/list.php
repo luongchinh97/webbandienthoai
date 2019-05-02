@@ -36,7 +36,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Quản lý hóa đơn</title>
+	<title></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<title></title>
   	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,7 +44,6 @@
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
   	<link rel="stylesheet" href="http://localhost:81/webbandienthoai/static/css/styleAdmin.css">
-	<script type="text/javascript" charset="utf8" src="../../../static/js/jquery-3.2.1.min.js"></script>
   	<style>
   		#dropbox_search{
   			position: relative;
@@ -65,7 +64,7 @@
 	                    <div class="card-header">
 	                        <strong class="card-title" >Danh sách sản phẩm</strong>
 	                        <div style="margin-top: 10px">
-								<form method="POST" action="#">
+								<form method="POST" action="">
 									<input id="input_search" style="width: 350px" type="text" name="ten" placeholder="Nhập tên sản phẩm cần tìm" 
 									class="form-control form-control-sm searchTen">
 								</form>
@@ -79,9 +78,9 @@
 									</select>
 								</form>
 							</div>
-							 <div style="margin-top: 10px"><a href='http://localhost:81/webbandienthoai/admin/modules/product/add.php' class='btn btn-primary a-btn-slide-text'><span><strong>Thêm</strong></span></a></div>
 	                    </div>
 	                    <div style="font-size: 14px" class="card-body list">
+	                    	<div style="margin-bottom: 10px"><a href='http://localhost:81/webbandienthoai/admin/modules/product/add.php' class='btn btn-primary a-btn-slide-text'><span><strong>Thêm</strong></span></a></div>
 							<?php echo $htmlList ?>
 						</div>
 	                </div>
@@ -89,7 +88,9 @@
 	          </div>
 	        </div>
 		</div>
+		<div class="clearfix"></div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 	<script>

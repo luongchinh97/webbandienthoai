@@ -146,10 +146,13 @@ class dao{
         return $arr;
     }
 
-    function getProductBanChay(){
+    function getProductBanChay($limit){
         $conn = connectDB();
         $arr = array();
         $sql = "SELECT product.*, SUM(cartitems.soLuong) AS tong FROM product INNER JOIN cartitems ON product.id = cartitems.idProduct GROUP BY cartitems.idProduct ORDER BY tong DESC;";
+        if($limit!=0){
+            $sql = "SELECT product.*, SUM(cartitems.soLuong) AS tong FROM product INNER JOIN cartitems ON product.id = cartitems.idProduct GROUP BY cartitems.idProduct ORDER BY tong DESC LIMIT {$limit};";
+        }
         $rs= $conn->query($sql);
         if($rs->num_rows > 0){
             while($row = $rs->fetch_assoc()){
@@ -160,9 +163,6 @@ class dao{
         return $arr;
     }
 
-    function getProduct($ram, $gia){
-        if($ram === "Tất cả" && $gia ==="Tất cả");
-    }
     /* Get Quan/Huyen/Tinh*/
     function getDistrict($id){
         $conn = connectDB();
@@ -242,6 +242,7 @@ class dao{
             return "";
         }
     }
+
+
 }
-    
  ?>

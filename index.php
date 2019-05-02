@@ -9,11 +9,11 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 </head>
 <body>
-	<!-- PHP -->
 	<?php 
 		require_once "layouts/header.php"; 
-		$spBanChay = $dao->getProductBanChay();
+		$spBanChay = $dao->getProductBanChay(12);
 		$spMoi = $dao->getProductMoi();
+		$qc1 = $dao->getById("quangcao",1);$qc2 = $dao->getById("quangcao",2);$qc3 = $dao->getById("quangcao",3);$qc4 = $dao->getById("quangcao",4);
 		$htmlSBC = ""; $htmlSM = "";
 		foreach ($spBanChay as $row => $value ) {
 			$htmlSBC.=
@@ -42,49 +42,42 @@
 			</div>";
 		}
 	?>
-
-	<!-- END PHP -->
-	
-	<!-- Danh muc -->
 	<div id="main">
 		<div id="quang-cao">
 			<img id="quang-cao-mot"
-				src="static/images/quangcao1.png" />
+				src="static/images/<?php echo $qc1['img']?>" />
 			<div class="noi-dung" style="color: #f7f7f7;">
 				<p>Laptop chính hãng</p>
 				<p>Bảo hành 2 năm</p>
-				<a style="color: white;" href="#" class="quang-cao">Read more</a>
+				<a style="color: white;" href="quangcao.php?id=<?php echo $qc1['id']?>" class="quang-cao">Read more</a>
 			</div>
 		</div>
 		<div id="quang-cao">
 			<img id="quang-cao-hai"
-				src="static/images/quangcao2.png" />
+				src="static/images/<?php echo $qc2['img'] ?>" />
 			<div class="noi-dung" style="color: #f7f7f7;">
 				<p>Phụ kiện máy tính,</p>
 				<p>Laptop, điện thoại đi kèm</p>
-				<a href="#" class="quang-cao">Read more</a>
+				<a href="quangcao.php?id=<?php echo $qc2['id']?>" class="quang-cao">Read more</a>
 			</div>
 		</div>
 		<div id="quang-cao">
-			<img id="quang-cao-ba" src="static/images/quangcao3.png" />
+			<img id="quang-cao-ba" src="static/images/<?php echo $qc3['img'] ?>" />
 			<div class="noi-dung">
 				<p>Tablet mới nhất</p>
-				<a href="#" class="quang-cao">Read more</a>
+				<a href="quangcao.php?id=<?php echo $qc3['id']?>" class="quang-cao">Read more</a>
 			</div>
 		</div>
 		<div id="quang-cao">
 			<img id="quang-cao-bon"
-				src="static/images/quangcao4.png" />
+				src="static/images/<?php echo $qc4['img'] ?>" />
 			<div class="noi-dung" style="color: #f7f7f7;">
 				<p style="margin-left: 300px;">Điện thoại chính hãng</p>
 				<p style="margin-left: 300px;">giảm giá 70% cho chính dz</p>
 
-				<a style="color: white; margin-left: 300px;" href="#" class="quang-cao">Read more</a>
+				<a style="color: white; margin-left: 300px;" href="quangcao.php?id=<?php echo $qc4['id']?>" class="quang-cao">Read more</a>
 			</div>
 		</div>
-		<!-- End danh muc  -->
-
-
 		<div id="contents">
 			<div id="product">
 				<div class="title">
@@ -102,15 +95,6 @@
 				</div>
 				<div class="product-swapper">
 					<?php echo "$htmlSBC"; ?>
-				</div>
-			</div>
-			<div id="product">
-				<div class="title">
-					<h3>Sản phẩm nổi bật</h3>
-					<div class="slider-nav"></div>
-				</div>
-				<div class="product-swapper">
-					<?php echo "$htmlSBC" ?>
 				</div>
 			</div>
 		</div>

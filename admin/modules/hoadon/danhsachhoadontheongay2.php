@@ -30,7 +30,7 @@ function show(){
                 <strong class="card-title">Danh sách hóa đơn</strong>
                 <div>
                 <form method="POST" action="index2.php">
-                    <label>Tìm kiếm theo ngày :</label> <input type="text" name="key" placeholder="Nhập ngày cần tìm ">
+                    <label>Tìm kiếm:</label> <input type="text" name="key" placeholder="Nhập ngày cần tìm ">
                     <input type="submit" name="submit" value="Tìm">
                 </form>
             </div>

@@ -47,6 +47,7 @@
  	<?php include_once ("../../layouts/left-panel.php"); ?>
 	<div id="right-panel" class="right-panel">
 		<?php include_once ("../../layouts/Header.php"); ?>
+		<div class="content">
 	        <div class="animated fadeIn">
 	          <div class="row">
 	            <div class="col-md-12">
@@ -184,11 +185,14 @@
 	        </div>
 	    </div>
 	</div>
+	<div class="clearfix"></div>
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
  	<script type="text/javascript">
  		CKEDITOR.replace('moTa',{
- 			width: '700px',
+ 			width: '750px',
+ 			height: '450px',
 	        resize_enabled : false
  		});
  		configCK();

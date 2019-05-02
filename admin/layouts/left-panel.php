@@ -9,8 +9,8 @@
                 <li><a href="http://localhost:81/webbandienthoai/admin/modules/product/list.php"> <i class="menu-icon ti-package"></i>Sản phẩm </a></li>
                 <li><a href="http://localhost:81/webbandienthoai/admin/modules/hoadon/list.php"> <i class="menu-icon ti-credit-card"></i>Hóa đơn </a></li>
                 <li><a href="http://localhost:81/webbandienthoai/admin/modules/user/list-user.php"> <i class="menu-icon ti-user"></i>Người dùng </a></li>
-                <li><a href="http://localhost:81/webbandienthoai/admin/modules/quangcao/list.php"> <i class="menu-icon ti-layout-tab-window"></i>Quảng cáo </a></li>
-                <li><a href="http://localhost:81/webbandienthoai/admin/modules/slider/list.php"> <i class="menu-icon ti-layout-slider"></i>Slider </a></li>
+                <li><a href="http://localhost:81/webbandienthoai/admin/modules/quangcao/quangcao.php"> <i class="menu-icon ti-layout-tab-window"></i>Quảng cáo </a></li>
+                <li><a href="http://localhost:81/webbandienthoai/admin/modules/slider/slider.php"> <i class="menu-icon ti-layout-slider"></i>Slider </a></li>
                 <li><a href="http://localhost:81/webbandienthoai/admin/modules/baohanh/baohanh.php"> <i class="menu-icon ti-layout-media-overlay"></i>Bảo hành </a></li>
 
                 <li class="menu-title">Thống kê</li>

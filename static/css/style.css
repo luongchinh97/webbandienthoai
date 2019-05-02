@@ -1398,3 +1398,14 @@ button{
 	width: 80%;
 	height: 350px;
 }
+#main-bao-hanh{
+	clear: left;
+	width: 100%;
+	min-height:500px; 
+}
+#contents-bao-hanh{
+	float: left;
+	width: 90%;
+	min-height: 500px;
+	margin: 30px;
+}
