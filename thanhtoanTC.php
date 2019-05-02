@@ -26,7 +26,8 @@
 			$body .="<tr><td>".$product['namePro']."</td><td>".$product['gia']."đ</td><td>".$value['soLuong']."</td><td>".(int)$product['gia']*(int)$value['soLuong']."đ</td></tr>";
 		}
 		$body .="<tfoot><tr><th colspan='3'>Tổng : </th><th colspan='2'>".$orderA['tongGia']."đ</th></tr></tfoot>";
-	    sendGmail("Hóa đơn mua hàng tại SmartShop:",$body,$user['name'],"aidamcanta01@gmail.com");
+	    sendGmail("Hóa đơn mua hàng tại SmartShop:",$body,$user['name'],$user['email']);
+	    unset($_SESSION['orderID']);
 	?>
 	<!-- END PHP -->
 	<div id="s-title">

@@ -1,5 +1,0 @@
-- Module Hóa đơn :
-	+ Xem danh sách hóa đơn.
-	+ Tìm kiếm hóa đơn.
-	+ Hiển thị chi tiết hóa đơn.
-	....

@@ -313,33 +313,77 @@ button{
 #slider {
 	width: 100%;
 	height: 350px;
-	position: relative;
-	overflow: hidden;
-	top: 0px;
-	left: 0px;
 	float: left;
+	position: relative;
 }
 
-#chuyen-slide {
-	width: 400%;
+/*SLIDER*/
+
+.slideshow-container {
+	width: 100%;
+	height: 100%;
+    position: relative;
+    margin: auto;
+}
+/* Ẩn các slider */
+.mySlides {
+    display: none;
+}
+/* Định dạng nội dung Caption */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    text-align: center;
+    color: #000;
+  }
+
+/* định dạng các chấm chuyển đổi các slide */
+ .dot {
+    cursor:pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 1 ease;
+}
+.list-dot{
 	position: absolute;
-	top: 0px;
-	left: 0px;
-	animation-name: slideranimation;
-	animation-duration: 10s;
-	animation-iteration-count: infinite;
+	width: 100px;
+	height: 20px;
+	bottom: 20px;
+	left: 623px;
+}
+/* khi được hover, active đổi màu nền */
+.active, .dot:hover {
+    background-color: #717171;
 }
 
-@keyframes slideranimation { 
-	0% {left: 0%;}
-	20%{left: 0%;}
-	25%{left:-1347px;}
-	45%{left:-1347px;}
-	50%{left:-2700px;}
-	70%{left:-2700px;}
-	75%{left:-4050px;}
-	95%{left: -4050px;}
+  /* Thêm hiệu ứng khi chuyển đổi các slide */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    animation-name: fade;
+    animation-duration: 2s;
 }
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/*END SLIDER*/
 
 #main {
 	clear: left;

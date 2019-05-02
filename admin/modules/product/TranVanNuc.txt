@@ -1,6 +1,0 @@
-- Module Product :
-	+ Xem danh sách sản phẩm.
-	+ Thêm sản phẩm.
-	+ Sửa thông tin sản phẩm.
-	+ Xóa sản phẩm.
-	+ Tìm kiếm sản phẩm.

@@ -1,2 +1,0 @@
-- Module Thống kê :
-	+ Thống kê 5 cái.

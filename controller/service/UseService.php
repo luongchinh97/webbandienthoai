@@ -55,9 +55,22 @@
 
     }
 
+
+    if($method == "GET"&&isset($_GET['username'])){
+        $user=$userDao->checkUsername($_GET['username']);
+        header('Content-type: application/json');
+        if(!empty($user))
+            echo json_encode(array("message" => "Bị trùng"));
+        else
+            echo json_encode(array("message" => "OK"));
+
+    }
+
     if($method == "GET"&&isset($_GET['search'])){
         $user=$userDao->search($_GET['search']);
         header('Content-type: application/json');
         echo json_encode($user);
 
     }
+
+

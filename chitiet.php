@@ -70,8 +70,8 @@
 						<div><?php echo $Product['cameraSau'] ?></div>
 					</li>
 					<li>
-						<span>CPU:</span>
-						<div></div>
+						<span>CPU: </span>
+						<div><?php echo $Product['CPU'] ?></div>
 					</li>
 					<li>
 						<span>RAM:</span>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,7 @@
 					//khach hang
 					header("location:index.php");
 				}else if($user['role']==2){
-					header("location:admin/index.php");
+					header("location:admin/modules/product/list.php");
 				}
 			}else{
 				$err = 1;

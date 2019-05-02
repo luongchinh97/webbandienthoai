@@ -1,2 +1,0 @@
-quyet ptit
-aaaa
