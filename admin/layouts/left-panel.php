@@ -18,7 +18,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="ti-money menu-icon fa fa-cogs"></i>Doanh thu</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="ti-money fa fa-puzzle-piece"></i><a href="http://localhost:81/webbandienthoai/admin/modules/thongke/DoanhThuHangThang.php">Doanh thu</a></li>
-                        <li><i class="ti-credit-card fa fa-id-badge"></i><a href="ui-badges.html">Hóa đơn</a></li>
+                        
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">

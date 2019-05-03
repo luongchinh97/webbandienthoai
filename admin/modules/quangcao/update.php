@@ -9,9 +9,9 @@
 		move_uploaded_file($_FILES['file-img']['tmp_name'],"../../../static/images/".$_FILES['file-img']['name']);
 		$IMG = $_FILES['file-img']['name'];
 		if($IMG==""){
-			$data=array("url"=>$_POST['url']);
+			$data=array("noiDung"=>$_POST['noiDung']);
 		}else{
-			$data=array("img"=>$_FILES['file-img']['name'],"url"=>$_POST['url']);
+			$data=array("img"=>$_FILES['file-img']['name'],"noiDung"=>$_POST['noiDung']);
 		}
 		$dao->update("quangcao",$data,$id);
 		header("location:quangcao.php");
@@ -44,7 +44,7 @@
 	                        <strong class="card-title" >Update quảng cáo</strong>
 	                    </div>
 	                    <div class="card-body card-block">
-							<form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+							<form action="" method="POST" enctype="multipart/form-data" class="form-horizontal" accept-charset="UTF-8">
 								<div class="row form-group">
 									<div class="col col-md-2">
 										<label class="form-control-label">ID</label>
@@ -58,7 +58,7 @@
 										<label class="form-control-label">Nội dung:</label>
 									</div>
 									<div class="col-12 col-md-6">
-										<input type="text" name="url" class="form-control" value="<?php echo $quangcao['noiDung'] ?>" required>
+										<input type="text" name="noiDung" class="form-control" value="<?php echo $quangcao['noiDung'] ?>" required>
 									</div>
 								</div>
 								<div class="row form-group">
