@@ -6,7 +6,7 @@
 	<link href="static/css/style.css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" charset="utf8" src="static/js/jquery-3.2.1.min.js"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+	
 </head>
 <body>
 	<?php 
@@ -47,35 +47,31 @@
 			<img id="quang-cao-mot"
 				src="static/images/<?php echo $qc1['img']?>" />
 			<div class="noi-dung" style="color: #f7f7f7;">
-				<p>Laptop chính hãng</p>
-				<p>Bảo hành 2 năm</p>
-				<a style="color: white;" href="quangcao.php?id=<?php echo $qc1['id']?>" class="quang-cao">Read more</a>
+				<p><?php echo $qc1['noiDung']; ?></p>
+				<a style="color: white;" href="quangcao.php?id=<?php echo $qc1['id']?>" class="quang-cao">Xem chi tiết</a>
 			</div>
 		</div>
 		<div id="quang-cao">
 			<img id="quang-cao-hai"
 				src="static/images/<?php echo $qc2['img'] ?>" />
 			<div class="noi-dung" style="color: #f7f7f7;">
-				<p>Phụ kiện máy tính,</p>
-				<p>Laptop, điện thoại đi kèm</p>
-				<a href="quangcao.php?id=<?php echo $qc2['id']?>" class="quang-cao">Read more</a>
+				<p><?php echo $qc2['noiDung']; ?></p>
+				<a href="quangcao.php?id=<?php echo $qc2['id']?>" class="quang-cao">Xem chi tiết</a>
 			</div>
 		</div>
 		<div id="quang-cao">
 			<img id="quang-cao-ba" src="static/images/<?php echo $qc3['img'] ?>" />
 			<div class="noi-dung">
-				<p>Tablet mới nhất</p>
-				<a href="quangcao.php?id=<?php echo $qc3['id']?>" class="quang-cao">Read more</a>
+				<p><?php echo $qc3['noiDung']; ?></p>
+				<a href="quangcao.php?id=<?php echo $qc3['id']?>" class="quang-cao">Xem chi tiết</a>
 			</div>
 		</div>
 		<div id="quang-cao">
 			<img id="quang-cao-bon"
 				src="static/images/<?php echo $qc4['img'] ?>" />
 			<div class="noi-dung" style="color: #f7f7f7;">
-				<p style="margin-left: 300px;">Điện thoại chính hãng</p>
-				<p style="margin-left: 300px;">giảm giá 70% cho chính dz</p>
-
-				<a style="color: white; margin-left: 300px;" href="quangcao.php?id=<?php echo $qc4['id']?>" class="quang-cao">Read more</a>
+				<p style="margin-left: 300px;"><?php echo $qc4['noiDung']; ?></p>
+				<a style="color: white; margin-left: 300px;" href="quangcao.php?id=<?php echo $qc4['id']?>" class="quang-cao">Xem chi tiết</a>
 			</div>
 		</div>
 		<div id="contents">

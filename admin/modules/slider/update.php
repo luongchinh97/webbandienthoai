@@ -3,6 +3,18 @@
 	$dao = new dao;
 	$id = $_GET['id'];
 	$slider = $dao->getById("slider",$id);
+	if(isset($_POST['submit'])){
+		$data=array();
+		move_uploaded_file($_FILES['file-img']['tmp_name'],"../../../static/images/".$_FILES['file-img']['name']);
+		$IMG = $_FILES['file-img']['name'];
+		if($IMG==""){
+			$data=array("url"=>$_POST['url']);
+		}else{
+			$data=array("img"=>$_FILES['file-img']['name'],"url"=>$_POST['url']);
+		}
+		$dao->update("slider",$data,$id);
+		header("location:slider.php");
+	}
 	
 ?>
 <!DOCTYPE html>
@@ -45,8 +57,9 @@
 									<div class="col col-md-2">
 										<label class="form-control-label">File ảnh:</label>
 									</div>
-									<div class="col-12 col-md-6">
-										<input type="file" name="file-img" class="form-control-file">
+									<div class="col-12 col-md-10">
+										<input type="file" name="file-img" class="form-control-file" accept="image/png, image/jpg">
+										<img style="margin-top: 15px;" src="../../../static/images/<?php echo $slider['img']; ?>"/>
 									</div>
 								</div>
 								<div class="row form-group">
@@ -54,7 +67,7 @@
 										<label class="form-control-label">URL:</label>
 									</div>
 									<div class="col-12 col-md-6">
-										<input type="text" name="url" class="form-control" value="<?php echo $slider['url'] ?>">
+										<input type="text" name="url" class="form-control" value="<?php echo $slider['url'] ?>" required>
 									</div>
 								</div>
 								<div>

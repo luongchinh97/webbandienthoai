@@ -331,16 +331,23 @@ button{
 }
 /* Định dạng nội dung Caption */
 .text {
-    color: #f2f2f2;
     font-size: 15px;
     padding: 8px 12px;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 15px;
     width: 100px;
     text-align: center;
-    color: #000;
-  }
+	height: 25px;
+	cursor: pointer;
+	background-color: #aeb1c1;
+	border-radius: 15px;
+	line-height: 25px;
+	opacity: 0.5;
+}
+.text a{
+	color: #1d06d3;
+}
 
 /* định dạng các chấm chuyển đổi các slide */
  .dot {
@@ -355,10 +362,10 @@ button{
 }
 .list-dot{
 	position: absolute;
-	width: 100px;
+	min-width: 100px;
 	height: 20px;
 	bottom: 20px;
-	left: 623px;
+	left: 580px;
 }
 /* khi được hover, active đổi màu nền */
 .active, .dot:hover {
@@ -419,6 +426,7 @@ button{
 	overflow: hidden;
 	display: inline-block;
 }
+
 .noi-dung {
 	position: absolute;
 	line-height: 25px;
@@ -470,6 +478,7 @@ button{
 	left: -20px;
 	transition: all ease 1s;
 	color: #7ab8ff;
+	width: 100px;
 }
 
 #quang-cao:HOVER .noi-dung a {

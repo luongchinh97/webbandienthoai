@@ -1,10 +1,9 @@
-
 <div id="header">
 	<?php 
 		require_once ("menutop.php"); 
 		$arrSlider = $dao->getAll("slider");
     $t = $dao->getById("time-slider",1);
-    $time = (int)$t['time']*1000;
+    $time = (int)$t['thoiGian']*1000;
 	?>
 	<div id="slider">
 		<div class="slideshow-container">
@@ -16,11 +15,10 @@
 	    <?php } ?>
       	</div>
       	<br>
-
       	<div style="text-align:center" class="list-dot">
-        	<span class="dot" onclick="currentSlide(0)"></span> 
-        	<span class="dot" onclick="currentSlide(1)"></span> 
-        	<span class="dot" onclick="currentSlide(2)"></span> 
+          <?php foreach ($arrSlider as $key => $value) { ?>
+        	     <span class="dot" onclick="currentSlide(<?php echo $key;?>)"></span> 
+          <?php } ?>
       	</div>  
 	</div>
 	<script>
@@ -36,12 +34,11 @@
           for (i = 0; i < dots.length; i++) {
               dots[i].className = dots[i].className.replace(" active", "");
           }
-
-          slides[slideIndex].style.display = "block";  
+          slides[slideIndex].style.display = " block";  
           dots[slideIndex].className += " active";
           slideIndex++;
           if (slideIndex > slides.length - 1) {
-            slideIndex = 0
+            slideIndex = 0;
           }    
           setTimeout(showSlides, timeSlider);
       }

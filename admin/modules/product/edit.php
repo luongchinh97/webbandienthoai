@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
 		 						"moTa"=>$_POST['moTa']
 		 						);
 		}
-		$sql=$dao->update("product",$data,$id);
+		$dao->update("product",$data,$id);
 		header("location:list.php");
 	}
  ?>
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
 	                    				<label class="form-control-label" for="name-input">Tên sản phẩm:</label> 
                     				</div>
                     				<div class="col-12 col-md-5">
-							 			<input id="name-input" class="form-control" type="text" name="namePro" value="<?php echo $row['namePro'] ?>">
+							 			<input id="name-input" class="form-control" type="text" name="namePro" value="<?php echo $row['namePro'] ?>" required>
                     				</div>
                     			</div>
                     			<div class="row form-group">
@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
                     					<label class="form-control-label" for="hang-input">Hãng sản xuất:</label>
                     				</div>
                     				<div class="col-12 col-md-5">
-                    					<input id="hang-input" class="form-control" type="text" name="hangSX" value="<?php echo $row['hangSX'] ?>">
+                    					<input id="hang-input" class="form-control" type="text" name="hangSX" value="<?php echo $row['hangSX'] ?>" required>
                     				</div>
                     			</div>
 								<div class="row form-group">
@@ -98,7 +98,7 @@ if(isset($_POST['submit'])){
 								 		<label class="form-control-label" for="namsx-input">Năm sản xuất:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-							 			<input id="namsx-input" class="form-control" type="text" name="namSX" value="<?php echo $row['namSX'] ?>">
+							 			<input id="namsx-input" class="form-control" type="text" name="namSX" value="<?php echo $row['namSX'] ?>" required>
 								 	</div>
 								 </div>
 								<div class="row form-group">
@@ -106,7 +106,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="gia-input">Giá:</label>
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="gia-input" class="form-control" type="text" name="gia" value="<?php echo $row['gia'] ?>">
+								 		<input id="gia-input" class="form-control" type="text" name="gia" value="<?php echo $row['gia'] ?>" required>
 								 	</div>
 								 </div>
 								<div class="row form-group">
@@ -114,7 +114,7 @@ if(isset($_POST['submit'])){
 								 		<label class="form-control-label" for="manHinh-input">Màn hình:</label>
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="manHinh-input" class="form-control" type="text" name="manHinh" value="<?php echo $row['manHinh'] ?>">
+								 		<input id="manHinh-input" class="form-control" type="text" name="manHinh" value="<?php echo $row['manHinh'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -122,7 +122,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="cpu-input">CPU:</label>
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="cpu-input" class="form-control" type="text" name="CPU" value="<?php echo $row['CPU'] ?>">
+								 		<input id="cpu-input" class="form-control" type="text" name="CPU" value="<?php echo $row['CPU'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -130,7 +130,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="cameraTruoc-input">Camera Trước:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="cameraTruoc-input" class="form-control" type="text" name="cameraTruoc" value="<?php echo $row['cameraTruoc'] ?>">
+								 		<input id="cameraTruoc-input" class="form-control" type="text" name="cameraTruoc" value="<?php echo $row['cameraTruoc'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -138,7 +138,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="cameraSau-input">Camera Sau:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="cameraSau-input" class="form-control" type="text" name="cameraSau" value="<?php echo $row['cameraSau'] ?>">
+								 		<input id="cameraSau-input" class="form-control" type="text" name="cameraSau" value="<?php echo $row['cameraSau'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -146,7 +146,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="hdh-input">Hệ điều hành:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="hdh-input" class="form-control" type="text" name="heDieuHanh" value="<?php echo $row['heDieuHanh'] ?>">
+								 		<input id="hdh-input" class="form-control" type="text" name="heDieuHanh" value="<?php echo $row['heDieuHanh'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -154,7 +154,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="ram-input">RAM:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="ram-input" class="form-control" type="text" name="ram" value="<?php echo $row['RAM'] ?>">
+								 		<input id="ram-input" class="form-control" type="text" name="ram" value="<?php echo $row['RAM'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -162,7 +162,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="rom-input">Bộ nhớ trong:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="rom-input" class="form-control" type="text" name="rom" value="<?php echo $row['ROM'] ?>">
+								 		<input id="rom-input" class="form-control" type="text" name="rom" value="<?php echo $row['ROM'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -170,7 +170,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="pin-input">Pin:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="pin-input" class="form-control" type="text" name="pin" value="<?php echo $row['PIN'] ?>">
+								 		<input id="pin-input" class="form-control" type="text" name="pin" value="<?php echo $row['PIN'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -186,7 +186,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="soluong-input">Tổng số lượng:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="soluong-input" class="form-control" type="text" name="tongSL" value="<?php echo $row['tongSL'] ?>">
+								 		<input id="soluong-input" class="form-control" type="text" name="tongSL" value="<?php echo $row['tongSL'] ?>" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -194,7 +194,7 @@ if(isset($_POST['submit'])){
 										<label class="form-control-label" for="moTa">Mô tả:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<textarea id="moTa" class="form-control" name="moTa"><?php echo $row['moTa']; ?></textarea>
+								 		<textarea id="moTa" class="form-control" name="moTa" required><?php echo $row['moTa']; ?></textarea>
 								 	</div>
 								 </div>
 						 		<input class="btn btn-secondary btn-sm" type="submit" name="submit" value="UPDATE">		

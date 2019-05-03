@@ -69,10 +69,10 @@
                             <div class="form-group"><label for="company" class=" form-control-label">Tài khoản</label><input readonly value="<?php echo $user['username'] ;?>"  name="username" type="text" id="username_add" placeholder="Nhập tên tài khoản..." class="form-control">
                                 <div id="check_username" style="float: right" >OK</div>
                             </div>
-                            <div class="form-group"><label for="vat" class=" form-control-label">Mật khẩu</label><input value="<?php echo $user['password'] ;?>"  name="password" type="text" id="vat" placeholder="Nhập mật khẩu..." class="form-control"></div>
-                            <div class="form-group"><label for="street" class=" form-control-label">Họ tên</label><input value="<?php echo $user['name'] ;?>"  name="name" type="text" id="street" placeholder="Họ tên người dùng..." class="form-control"></div>
-                            <div class="form-group"><label for="street" class=" form-control-label">Số điện thoại</label><input value="<?php echo $user['phone'] ;?>"  name="phone" type="text" id="street" placeholder="Nhập số điện thoại..." class="form-control"></div>
-                            <div class="form-group"><label for="country" class=" form-control-label">Email</label><input value="<?php echo $user['email'] ;?>"  name="email" type="text" id="country" placeholder="Địa chỉ hòm thư..." class="form-control"></div>
+                            <div class="form-group"><label for="vat" class=" form-control-label">Mật khẩu</label><input required value="<?php echo $user['password'] ;?>"  name="password" type="text" id="vat" placeholder="Nhập mật khẩu..." class="form-control"></div>
+                            <div class="form-group"><label for="street" class=" form-control-label">Họ tên</label><input required value="<?php echo $user['name'] ;?>"  name="name" type="text" id="street" placeholder="Họ tên người dùng..." class="form-control"></div>
+                            <div class="form-group"><label for="street" class=" form-control-label">Số điện thoại</label><input required  pattern="0[0-9]{9,10}" value="<?php echo $user['phone'] ;?>"  name="phone" type="text" id="street" placeholder="Nhập số điện thoại..." class="form-control"></div>
+                            <div class="form-group"><label for="country" class=" form-control-label">Email</label><input required value="<?php echo $user['email'] ;?>"  name="email" type="text" id="country" placeholder="Địa chỉ hòm thư..." class="form-control"></div>
                             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
                         </form>
                     </div>

@@ -34,9 +34,9 @@
 			<h1>Đăng nhập</h1>
 			<form action="" method="post">
 				<label id="lable-user" for="username"><img src="static/images/user.png"/></label>
-				<input id="username" type="text" name="username" placeholder="Username" /> 
+				<input id="username" type="text" name="username" placeholder="Username" required/> 
 				<label id="lable-pass" for="password"><img src="static/images/password.png"/></label>
-				<input type="password" name="password" placeholder="Passwrod" /> 
+				<input type="password" name="password" placeholder="Passwrod" required/> 
 				<a href="#">Quên mật khẩu?</a>
 				<button type="submit" onclick="check()" name="login">Đăng nhập</button>
 				<a href="#">Đăng ký</a>

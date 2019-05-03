@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="static/css/style.css" rel="stylesheet" />
 <script type="text/javascript" charset="utf8" src="static/js/jquery-3.2.1.min.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 <title>Homeshop</title>
 </head>
 <body>

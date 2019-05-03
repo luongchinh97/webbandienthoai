@@ -20,8 +20,8 @@
 						<div class='name-user'>  ".$user['name']."  </div>
 						<div class='ql-user'>
 							<ul>
-								<li><i class='far fa-smile'></i><a href='#'>Quản lý tài khoản</a></li>
-								<li><i class='fas fa-box'></i><a href='#'>Đơn hàng của tôi</a></li>
+								<li><i class='far fa-smile'></i><a href='qlytaikhoan.php'>Quản lý tài khoản</a></li>
+								<li><i class='fas fa-box'></i><a href='qlydonhang.php'>Đơn hàng của tôi</a></li>
 								<li><i class='fas fa-sign-out-alt'></i><a href='dangxuat.php'>Đăng xuất</a></li>
 							</ul>
 						</div>

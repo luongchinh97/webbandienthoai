@@ -34,7 +34,7 @@ class dao{
 
     function update($table, $data, $id) {
         $conn = connectDB();
-        $sql = "UPDATE {$table} set ";
+        $sql = "UPDATE `{$table}` set ";
         $str = "";
         foreach($data as $key => $value) {
             if (is_string($value)) {
@@ -242,7 +242,15 @@ class dao{
             return "";
         }
     }
-
+    function checkUser($username){
+        $conn = connectDB();
+        $sql = "SELECT * FROM user WHERE username='$username';";
+        $rs = $conn->query($sql);
+        if($rs->num_rows >0){
+            $row = $rs->fetch_assoc();
+            return $row;
+        }
+    }
 
 }
  ?>

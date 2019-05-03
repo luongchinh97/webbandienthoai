@@ -5,8 +5,8 @@
 	<title>Homeshop</title>
 	<link href="static/css/style.css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<script type="text/javascript" charset="utf8" src="static/js/jquery-3.2.1.min.js"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 	<style type="text/css">
 		table, tr, th, td{
 			border: 1px solid #6b9cff;

@@ -2,7 +2,7 @@
 include("congcu.php");
 function show(){
     $dao= new dao;
-    $html="<thead><tr><th>STT</th><th>IdUser</th><th>Địa chỉ</th><th>Ngày lập</th><th>Tổng giá</th><th>Số lượng</th><th  colspan='3'>Tùy chọn</th></tr></thead>";
+    $html="<thead><tr><th>ID</th><th>IdUser</th><th>Địa chỉ</th><th>Ngày lập</th><th>Tổng giá</th><th>Số lượng</th><th  colspan='3'>Tùy chọn</th></tr></thead>";
                 $rs=$dao->getPayment();
                  while($row = $rs->fetch_assoc()){
                         $html.="<tr><td>".$row['id'].

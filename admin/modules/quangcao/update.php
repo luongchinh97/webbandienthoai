@@ -4,6 +4,18 @@
 	$id = $_GET['id'];
 	$quangcao = $dao->getById("quangcao",$id);
 
+	if(isset($_POST['submit'])){
+		$data=array();
+		move_uploaded_file($_FILES['file-img']['tmp_name'],"../../../static/images/".$_FILES['file-img']['name']);
+		$IMG = $_FILES['file-img']['name'];
+		if($IMG==""){
+			$data=array("url"=>$_POST['url']);
+		}else{
+			$data=array("img"=>$_FILES['file-img']['name'],"url"=>$_POST['url']);
+		}
+		$dao->update("quangcao",$data,$id);
+		header("location:quangcao.php");
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,15 +58,16 @@
 										<label class="form-control-label">Nội dung:</label>
 									</div>
 									<div class="col-12 col-md-6">
-										<input type="text" name="url" class="form-control" value="<?php echo $quangcao['noiDung'] ?>">
+										<input type="text" name="url" class="form-control" value="<?php echo $quangcao['noiDung'] ?>" required>
 									</div>
 								</div>
 								<div class="row form-group">
 									<div class="col col-md-2">
 										<label class="form-control-label">File ảnh:</label>
 									</div>
-									<div class="col-12 col-md-6">
+									<div class="col-12 col-md-10">
 										<input type="file" name="file-img" class="form-control-file">
+										<img style="margin-top: 15px;" src="../../../static/images/<?php echo $quangcao['img']; ?>"/>
 									</div>
 								</div>
 								<div>

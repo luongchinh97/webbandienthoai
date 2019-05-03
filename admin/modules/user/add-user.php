@@ -70,10 +70,10 @@
                                   <div id="check_username" style="float: right" >OK</div>
                               </div>
                               <div class="form-group"><label for="vat" class=" form-control-label">Mật khẩu</label><input required oninvalid="this.setCustomValidity('Vui lòng nhập mật khẩu.')" oninput="setCustomValidity('')" name="password" type="text" id="vat" placeholder="Nhập mật khẩu..." class="form-control"></div>
-                              <div class="form-group"><label for="street" class=" form-control-label">Họ tên</label><input name="name" type="text" id="street" placeholder="Họ tên người dùng..." class="form-control"></div>
-                              <div class="form-group"><label for="street" class=" form-control-label">Số điện thoại</label><input name="phone" type="text" id="street" placeholder="Nhập số điện thoại..." class="form-control"></div>
+                              <div class="form-group"><label for="street" class=" form-control-label">Họ tên</label><input required name="name" type="text" id="street" placeholder="Họ tên người dùng..." class="form-control"></div>
+                              <div class="form-group"><label for="street" class=" form-control-label">Số điện thoại</label><input required  pattern="0[0-9]{9,10}" name="phone" type="text" id="street" placeholder="Nhập số điện thoại..." class="form-control"></div>
                               <div class="form-group"><label for="country" class=" form-control-label">Email</label>
-                                  <input oninvalid="this.setCustomValidity('Địa chỉ email không chính xác.')" oninput="setCustomValidity('')" name="email" type="email" id="country" placeholder="Địa chỉ hòm thư..." class="form-control"></div>
+                                  <input required oninvalid="this.setCustomValidity('Địa chỉ email không chính xác.')" oninput="setCustomValidity('')" name="email" type="email" id="country" placeholder="Địa chỉ hòm thư..." class="form-control"></div>
                               <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
                           </form>
                       </div>

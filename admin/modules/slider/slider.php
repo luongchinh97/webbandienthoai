@@ -3,7 +3,13 @@
 	$dao = new dao;
 	$arr = $dao->getAll("slider");
 	$time = $dao->getById("time-slider",1);
- ?>
+
+	if(isset($_POST['submit'])){
+		$t = array("thoiGian"=>(int) $_POST['time-slide']);
+		$dao->update("time-slider",$t,1);
+		header("location:slider.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +37,7 @@
 	                        <strong class="card-title" >Slider website</strong>
 	                    </div>
 	                    <div class="table-stats order-table ov-h">
+	                    	<div style="margin: 10px 50px;"><a href='add.php' class='btn btn-primary a-btn-slide-text'><span><strong>Thêm</strong></span></a></div>
 	                    	<table class="table">
 	                    		<thead>
 	                    			<tr>
@@ -48,7 +55,7 @@
 	                    				<td><?php echo $value['id']  ?></td>
 	                    				<td><?php echo $value['img'] ?></td>
 	                    				<td><?php echo $value['url'] ?></td>
-	                    				<td><a href="update.php?id=<?php echo $value['id']; ?>">Update</a></td>
+	                    				<td><a href="update.php?id=<?php echo $value['id'];?>">Update</a> | <a href="delete.php?id=<?php echo $value['id'];?>">Delete</a></td>
 	                    			</tr>
 	                    			<?php } ?>
 	                    		</tbody>
@@ -59,10 +66,10 @@
 	            <div class="col-lg-6">
 	            	<div class="card">
 	                    <div class="card-body">
-	                    	<form>
+	                    	<form action="" method="POST">
 	                    		<div class="form-group">
 	                    			<label class="control-label mb-1">Thời gian chuyển slide:</label>
-	                    			<input type="number" name="time-slide" class="form-control cc-name valid" min="1" value="<?php echo $time['time'] ?>">
+	                    			<input type="number" name="time-slide" class="form-control cc-name valid" min="1" value="<?php echo $time['thoiGian']?>">
 	                    			<input type="submit" name="submit" class="btn btn-outline-secondary" style="margin-top: 10px;" value="Lưu">
 	                    		</div>
 	                    	</form>

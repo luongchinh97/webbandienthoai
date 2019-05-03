@@ -62,7 +62,7 @@
 	                    				<label class="form-control-label" for="name-input">Tên sản phẩm:</label> 
                     				</div>
                     				<div class="col-12 col-md-5">
-							 			<input id="name-input" class="form-control" type="text" name="namePro" >
+							 			<input id="name-input" class="form-control" type="text" name="namePro" required>
                     				</div>
                     			</div>
                     			<div class="row form-group">
@@ -70,7 +70,7 @@
                     					<label class="form-control-label" for="hang-input">Hãng sản xuất:</label>
                     				</div>
                     				<div class="col-12 col-md-5">
-                    					<input id="hang-input" class="form-control" type="text" name="hangSX" >
+                    					<input id="hang-input" class="form-control" type="text" name="hangSX" required>
                     				</div>
                     			</div>
 								<div class="row form-group">
@@ -78,7 +78,7 @@
 								 		<label class="form-control-label" for="namsx-input">Năm sản xuất:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-							 			<input id="namsx-input" class="form-control" type="text" name="namSX" >
+							 			<input id="namsx-input" class="form-control" type="text" name="namSX" required>
 								 	</div>
 								 </div>
 								<div class="row form-group">
@@ -86,7 +86,7 @@
 										<label class="form-control-label" for="gia-input">Giá:</label>
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="gia-input" class="form-control" type="text" name="gia" >
+								 		<input id="gia-input" class="form-control" type="text" name="gia" required>
 								 	</div>
 								 </div>
 								<div class="row form-group">
@@ -94,7 +94,7 @@
 								 		<label class="form-control-label" for="manHinh-input">Màn hình:</label>
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="manHinh-input" class="form-control" type="text" name="manHinh" >
+								 		<input id="manHinh-input" class="form-control" type="text" name="manHinh" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -102,7 +102,7 @@
 										<label class="form-control-label" for="cpu-input">CPU:</label>
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="cpu-input" class="form-control" type="text" name="CPU" >
+								 		<input id="cpu-input" class="form-control" type="text" name="CPU" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -110,7 +110,7 @@
 										<label class="form-control-label" for="cameraTruoc-input">Camera Trước:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="cameraTruoc-input" class="form-control" type="text" name="cameraTruoc" >
+								 		<input id="cameraTruoc-input" class="form-control" type="text" name="cameraTruoc" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -118,7 +118,7 @@
 										<label class="form-control-label" for="cameraSau-input">Camera Sau:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="cameraSau-input" class="form-control" type="text" name="cameraSau" >
+								 		<input id="cameraSau-input" class="form-control" type="text" name="cameraSau" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -126,7 +126,7 @@
 										<label class="form-control-label" for="hdh-input">Hệ điều hành:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="hdh-input" class="form-control" type="text" name="heDieuHanh" >
+								 		<input id="hdh-input" class="form-control" type="text" name="heDieuHanh" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -134,7 +134,7 @@
 										<label class="form-control-label" for="ram-input">RAM:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="ram-input" class="form-control" type="text" name="ram" >
+								 		<input id="ram-input" class="form-control" type="text" name="ram" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -142,7 +142,7 @@
 										<label class="form-control-label" for="rom-input">Bộ nhớ trong:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="rom-input" class="form-control" type="text" name="rom" >
+								 		<input id="rom-input" class="form-control" type="text" name="rom" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -150,7 +150,7 @@
 										<label class="form-control-label" for="pin-input">Pin:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="pin-input" class="form-control" type="text" name="pin" >
+								 		<input id="pin-input" class="form-control" type="text" name="pin" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -166,7 +166,7 @@
 										<label class="form-control-label" for="soluong-input">Tổng số lượng:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<input id="soluong-input" class="form-control" type="text" name="tongSL" >
+								 		<input id="soluong-input" class="form-control" type="text" name="tongSL" required>
 								 	</div>
 								 </div>
 								 <div class="row form-group">
@@ -174,7 +174,7 @@
 										<label class="form-control-label" for="moTa">Mô tả:</label> 
 								 	</div>
 								 	<div class="col-12 col-md-5">
-								 		<textarea id="moTa" class="form-control" name="moTa"></textarea>
+								 		<textarea id="moTa" class="form-control" name="moTa" required></textarea>
 								 	</div>
 								 </div>
 						 		<input class="btn btn-secondary btn-sm" type="submit" name="submit" value="Submit">		

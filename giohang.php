@@ -156,7 +156,7 @@
 							echo $htmlCartItems;
 							}
 					?>
-					<button type="button" class="button-pp" name="pp"><img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png" alt="Pay with PayPal" /></button>
+					<button type="button" class="button-pp" name="pp"><img src="static/images/btnpaypal.png" alt="Pay with PayPal" /></button>
 				</form>
 				<?php } ?>
 			</div>
